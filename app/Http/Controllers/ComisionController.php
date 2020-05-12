@@ -67,12 +67,12 @@ class ComisionController extends Controller{
     public function update(Request $request, $id_comision){
         $request->user()->authorizeRoles(['Admin','Secretario']); 
     	$datosComision=request()->except('_token');
-        $yaExiste=Comision::where('año','=',$request->input('año'))->where('facultad','=',$request->input('facultad'))->where('estado','=','ACTIVO')->first();
-        if($yaExiste->id_comision==$id_comision){
+        $yaExiste=Comision::where('año','=',$request->input('año'))->where('facultad','=',$request->input('facultad'))->first();
+        if($yaExiste->id_comision!=$id_comision && $yaExiste->estado=='ACTIVO'){
+            return redirect('comision/'.$id_comision.'/edit')->with('Mensaje','Ya existe una comision para el periodo seleccionado');
+        }else{
             Comision::where('id_comision','=',$id_comision)->update($datosComision);
             return redirect('comisiones')->with('Mensaje','Comisión actualizada con éxito');
-        }else{
-            return redirect('comision/'.$id_comision.'/edit')->with('Mensaje','Ya existe una comision para el periodo seleccionado');
         }
     }
 
