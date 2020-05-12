@@ -1,15 +1,6 @@
 @extends('layouts.app')
 
-
 @section('content')
-
-<script type="text/javascript" src="{!! asset('js/evaluar.js') !!}"></script>
-
-
-
-
-
-
 
 <div class="container">
 
@@ -42,7 +33,7 @@
 
 	<br><br>
 	<b>Calificación Académica</b>
-		<table class="table table-light table-hover" style="text-align: center;">
+		<table class="table table-light table-hover">
 
 		<!-- Cabecera de la tabla, donde se especifica los datos que tendrá cada columna-->
 			<thread class="thread-light">
@@ -60,46 +51,46 @@
 
 			<tbody>
 				<tr>
-					<td style="margin-top: 10px;">1. Actividades de Docencia</td>
+					<td>1. Actividades de Docencia</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado1')?'is-invalid':''}}" name="tiempoAsignado1" id="tiempoAsignado1" onchange="prom1(this.value,0);">
+							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado1')?'is-invalid':''}}" name="tiempoAsignado1" id="tiempoAsignado1">
 							{!! $errors->first('tiempoAsignado1','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('1e')?'is-invalid':''}}" name="1e" id="1e" onchange="prom1(this.value,1);">
+							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('1e')?'is-invalid':''}}" name="1e" id="1e">
 							{!! $errors->first('actividadDocencia','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('1mb')?'is-invalid':''}}" name="1mb" id="1mb" onchange="prom1(this.value,2);">
+							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('1mb')?'is-invalid':''}}" name="1mb" id="1mb">
 							{!! $errors->first('actividadDocencia','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('1b')?'is-invalid':''}}" name="1b" id="1b" onchange="prom1(this.value,3);">
+							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('1b')?'is-invalid':''}}" name="1b" id="1b">
 							{!! $errors->first('actividadDocencia','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('1r')?'is-invalid':''}}" name="1r" id="1r" onchange="prom1(this.value,4);">
+							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('1r')?'is-invalid':''}}" name="1r" id="1r">
 							{!! $errors->first('actividadDocencia','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('1d')?'is-invalid':''}}" name="1d" id="1d" onchange="prom1(this.value,5);">
+							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('1d')?'is-invalid':''}}" name="1d" id="1d">
 							{!! $errors->first('actividadDocencia','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
@@ -117,42 +108,42 @@
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado2')?'is-invalid':''}}" name="tiempoAsignado2" id="tiempoAsignado2" onchange="prom2(this.value,0);">
+							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado2')?'is-invalid':''}}" name="tiempoAsignado2" id="tiempoAsignado2">
 							{!! $errors->first('tiempoAsignado2','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('2e')?'is-invalid':''}}" name="2e" id="2e" onchange="prom2(this.value,1);">
+							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('2e')?'is-invalid':''}}" name="2e" id="2e">
 							{!! $errors->first('actividadesInvestigacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('2mb')?'is-invalid':''}}" name="2mb" id="2mb" onchange="prom2(this.value,2);">
+							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('2mb')?'is-invalid':''}}" name="2mb" id="2mb">
 							{!! $errors->first('actividadesInvestigacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('2b')?'is-invalid':''}}" name="2b" id="2b" onchange="prom2(this.value,3);">
+							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('2b')?'is-invalid':''}}" name="2b" id="2b">
 							{!! $errors->first('actividadesInvestigacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('2r')?'is-invalid':''}}" name="2r" id="2r" onchange="prom2(this.value,4);">
+							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('2r')?'is-invalid':''}}" name="2r" id="2r">
 							{!! $errors->first('actividadesInvestigacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('2d')?'is-invalid':''}}" name="2d" id="2d" onchange="prom2(this.value,5);">
+							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('2d')?'is-invalid':''}}" name="2d" id="2d">
 							{!! $errors->first('actividadesInvestigacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
@@ -170,42 +161,42 @@
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado3')?'is-invalid':''}}" name="tiempoAsignado3" id="tiempoAsignado3" onchange="prom3(this.value,0);">
+							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado3')?'is-invalid':''}}" name="tiempoAsignado3" id="tiempoAsignado3">
 							{!! $errors->first('tiempoAsignado3','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('3e')?'is-invalid':''}}" name="3e" id="3e" onchange="prom3(this.value,1);">
+							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('3e')?'is-invalid':''}}" name="3e" id="3e">
 							{!! $errors->first('extensionyVinculacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('3mb')?'is-invalid':''}}" name="3mb" id="3mb" onchange="prom3(this.value,2);">
+							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('3mb')?'is-invalid':''}}" name="3mb" id="3mb">
 							{!! $errors->first('extensionyvinculacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('3b')?'is-invalid':''}}" name="3b" id="3b" onchange="prom3(this.value,3);">
+							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('3b')?'is-invalid':''}}" name="3b" id="3b">
 							{!! $errors->first('extensionyvinculacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('3r')?'is-invalid':''}}" name="3r" id="3r" onchange="prom3(this.value,4);">
+							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('3r')?'is-invalid':''}}" name="3r" id="3r">
 							{!! $errors->first('extensionyvinculacion','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('3d')?'is-invalid':''}}" name="3d" id="3d" onchange="prom3(this.value,5);">
+							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('3d')?'is-invalid':''}}" name="3d" id="3d">
 							{!! $errors->first('extensionyVinculacino','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
@@ -223,42 +214,42 @@
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado4')?'is-invalid':''}}" name="tiempoAsignado4" id="tiempoAsignado4" onchange="prom4(this.value,0);">
+							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado4')?'is-invalid':''}}" name="tiempoAsignado4" id="tiempoAsignado4">
 							{!! $errors->first('tiempoAsignado4','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('4e')?'is-invalid':''}}" name="4e" id="4e" onchange="prom4(this.value,1);">
+							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('4e')?'is-invalid':''}}" name="4e" id="4e">
 							{!! $errors->first('administracionAcademica','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('4mb')?'is-invalid':''}}" name="4mb" id="4mb" onchange="prom4(this.value,2);">
+							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('4mb')?'is-invalid':''}}" name="4mb" id="4mb">
 							{!! $errors->first('administracionAcademica','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('4b')?'is-invalid':''}}" name="4b" id="4b" onchange="prom4(this.value,3);">
+							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('4b')?'is-invalid':''}}" name="4b" id="4b">
 							{!! $errors->first('administracionAcademica','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('4r')?'is-invalid':''}}" name="4r" id="4r" onchange="prom4(this.value,4);">
+							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('4r')?'is-invalid':''}}" name="4r" id="4r">
 							{!! $errors->first('administracionAcademica','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('4d')?'is-invalid':''}}" name="4d" id="4d" onchange="prom4(this.value,5);">
+							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('4d')?'is-invalid':''}}" name="4d" id="4d">
 							{!! $errors->first('administracionAcademica','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
@@ -276,42 +267,42 @@
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado5')?'is-invalid':''}}" name="tiempoAsignado5" id="tiempoAsignado5"  onchange="prom5(this.value,0);">
+							<input type="number" min="0" max="100" class="form-control {{$errors->has('tiempoAsignado5')?'is-invalid':''}}" name="tiempoAsignado5" id="tiempoAsignado5">
 							{!! $errors->first('tiempoAsignado5','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('5e')?'is-invalid':''}}" name="5e" id="5e"  onchange="prom5(this.value,1);">
+							<input type="number" min="4.5" step="0.1" max="5.0" class="form-control {{$errors->has('5e')?'is-invalid':''}}" name="5e" id="5e">
 							{!! $errors->first('otrasActividades','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('5mb')?'is-invalid':''}}" name="5mb" id="5mb" onchange="prom5(this.value,2);">
+							<input type="number" min="4.0" step="0.1" max="4.4" class="form-control {{$errors->has('5mb')?'is-invalid':''}}" name="5mb" id="5mb">
 							{!! $errors->first('otrasActividades','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('5b')?'is-invalid':''}}" name="5b" id="5b" onchange="prom5(this.value,3);">
+							<input type="number" min="3.5" step="0.1" max="3.9" class="form-control {{$errors->has('5b')?'is-invalid':''}}" name="5b" id="5b">
 							{!! $errors->first('otrasActividades','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('5r')?'is-invalid':''}}" name="5r" id="5r" onchange="prom5(this.value,4);">
+							<input type="number" min="2.7" step="0.1" max="3.4" class="form-control {{$errors->has('5r')?'is-invalid':''}}" name="5r" id="5r">
 							{!! $errors->first('otrasActividades','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
 					<td>
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('5d')?'is-invalid':''}}" name="5d" id="5d" onchange="prom5(this.value,5);">
+							<input type="number" min="1.0" step="0.1" max="2.6" class="form-control {{$errors->has('5d')?'is-invalid':''}}" name="5d" id="5d">
 							{!! $errors->first('otrasActividades','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
@@ -322,19 +313,6 @@
 							{!! $errors->first('otrasActividades','<div class="invalid-feedback">:message</div>') !!}
 						</div>
 					</td>
-					
-				</tr>
-				<tr>
-	
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><b style="margin-top: 100px;">Promedio</b></td>
-					<td><input type="text" class="form-control" name="nota" id="nota" readonly></td>				
-					
 				</tr>
 			</tbody>
 		</table>
