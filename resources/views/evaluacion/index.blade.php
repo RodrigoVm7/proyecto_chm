@@ -38,10 +38,18 @@
   						<div class="alert alert-danger"> {{ $Mensaje }}</div>
 					@endif
    					<label class="radio-inline">
-   					@foreach($comisiones as $comision)
-        			<input  type="radio"  name="comision" id="{{$comision->id_comision}}" value="{{$comision->id_comision}}" required>  <b>Año</b>: {{$comision->año}}  -  <b>Rut</b>: {{$comision->rut_academico}}  -  <b>Decano</b>: {{$comision->decano}}  -  <b>Miembro1</b>: {{$comision->miembro1}}  -  <b>Miembro2</b>: {{$comision->miembro2}}<br>
-        			@endforeach
-    				</label>
+   						@php
+        					$c=count($comisiones)
+        				@endphp
+   						@foreach($comisiones as $comision)
+   							@if($c==1)
+        						<input  type="radio"  name="comision" id="{{$comision->id_comision}}" value="{{$comision->id_comision}}" required checked> 
+        					@else
+        						<input  type="radio"  name="comision" id="{{$comision->id_comision}}" value="{{$comision->id_comision}}" required>
+        					@endif 
+        						<b>Año</b>: {{$comision->año}}  -  <b>Rut</b>: {{$comision->rut_academico}}  -  <b>Decano</b>: {{$comision->decano}}  -  <b>Miembro1</b>: {{$comision->miembro1}}  -  <b>Miembro2</b>: {{$comision->miembro2}}<br>
+        				@endforeach
+        			</label>
  				</div>
  			</td>
  		</tr>
