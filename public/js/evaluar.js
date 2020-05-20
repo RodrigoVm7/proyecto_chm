@@ -23,6 +23,11 @@ var ot5=0;
 t5=parseFloat(t5);
 ot5=parseFloat(ot5);
 
+function toTrunc(value,n){
+    x=(value.toString()+".0").split(".");
+    return parseFloat(x[0]+"."+x[1].substr(0,n));
+}
+
 function prom1(valor,tipo){
     valor=parseFloat(valor);
     
@@ -79,7 +84,7 @@ function prom1(valor,tipo){
         document.getElementById("1d").readOnly = false;
     }
 
-    document.getElementById("1tc").value =(t1*ot1)/100;
+    document.getElementById("1tc").value =toTrunc(((t1*ot1)/100),2);
 
     if((document.getElementById("1tc") != null) && (document.getElementById("2tc")!= null) && (document.getElementById("3tc") != null) && (document.getElementById("4tc") != null) && (document.getElementById("5tc") != null)){
         var nota = parseFloat(document.getElementById("1tc").value) + parseFloat(document.getElementById("2tc").value)+parseFloat(document.getElementById("3tc").value)+parseFloat(document.getElementById("4tc").value)+parseFloat(document.getElementById("5tc").value);
@@ -88,7 +93,7 @@ function prom1(valor,tipo){
             
         }
         else{
-            document.getElementById("nota").value = nota;
+            document.getElementById("nota").value = toTrunc(nota,2);
             
         }
     }   
@@ -153,7 +158,7 @@ function prom2(valor,tipo){
         document.getElementById("2d").readOnly = false;
     }
 
-    document.getElementById("2tc").value =(t2*ot2)/100;
+    document.getElementById("2tc").value =toTrunc(((t2*ot2)/100),2);
     if((document.getElementById("1tc") != null) && (document.getElementById("2tc")!= null) && (document.getElementById("3tc") != null) && (document.getElementById("4tc") != null) && (document.getElementById("5tc") != null)){
         var nota = parseFloat(document.getElementById("1tc").value) + parseFloat(document.getElementById("2tc").value)+parseFloat(document.getElementById("3tc").value)+parseFloat(document.getElementById("4tc").value)+parseFloat(document.getElementById("5tc").value);
         if(isNaN(nota)){
@@ -161,7 +166,7 @@ function prom2(valor,tipo){
             
         }
         else{
-            document.getElementById("nota").value = nota;
+            document.getElementById("nota").value = toTrunc(nota,2);
             
         }
     }   
@@ -225,7 +230,7 @@ function prom3(valor,tipo){
         document.getElementById("3d").readOnly = false;
     }
 
-    document.getElementById("3tc").value =(t3*ot3)/100;
+    document.getElementById("3tc").value =toTrunc(((t3*ot3)/100),2);
     if((document.getElementById("1tc") != null) && (document.getElementById("2tc")!= null) && (document.getElementById("3tc") != null) && (document.getElementById("4tc") != null) && (document.getElementById("5tc") != null)){
         var nota = parseFloat(document.getElementById("1tc").value) + parseFloat(document.getElementById("2tc").value)+parseFloat(document.getElementById("3tc").value)+parseFloat(document.getElementById("4tc").value)+parseFloat(document.getElementById("5tc").value);
         if(isNaN(nota)){
@@ -233,7 +238,7 @@ function prom3(valor,tipo){
             
         }
         else{
-            document.getElementById("nota").value = nota;
+            document.getElementById("nota").value = toTrunc(nota,2);
             
         }
     }   
@@ -297,7 +302,7 @@ function prom4(valor,tipo){
         document.getElementById("4d").readOnly = false;
     }
 
-    document.getElementById("4tc").value =(t4*ot4)/100;
+    document.getElementById("4tc").value =toTrunc(((t4*ot4)/100),2);
     if((document.getElementById("1tc") != null) && (document.getElementById("2tc")!= null) && (document.getElementById("3tc") != null) && (document.getElementById("4tc") != null) && (document.getElementById("5tc") != null)){
         var nota = parseFloat(document.getElementById("1tc").value) + parseFloat(document.getElementById("2tc").value)+parseFloat(document.getElementById("3tc").value)+parseFloat(document.getElementById("4tc").value)+parseFloat(document.getElementById("5tc").value);
         if(isNaN(nota)){
@@ -305,7 +310,7 @@ function prom4(valor,tipo){
             
         }
         else{
-            document.getElementById("nota").value = nota;
+            document.getElementById("nota").value = toTrunc(nota,2);
             
         }
     }   
@@ -369,7 +374,7 @@ function prom5(valor,tipo){
         document.getElementById("5d").readOnly = false;
     }
 
-    document.getElementById("5tc").value =(t5*ot5)/100;
+    document.getElementById("5tc").value = toTrunc(((t5*ot5)/100),2);
     if((document.getElementById("1tc") != null) && (document.getElementById("2tc")!= null) && (document.getElementById("3tc") != null) && (document.getElementById("4tc") != null) && (document.getElementById("5tc") != null)){
         var nota = parseFloat(document.getElementById("1tc").value) + parseFloat(document.getElementById("2tc").value)+parseFloat(document.getElementById("3tc").value)+parseFloat(document.getElementById("4tc").value)+parseFloat(document.getElementById("5tc").value);
         if(isNaN(nota)){
@@ -377,7 +382,7 @@ function prom5(valor,tipo){
             
         }
         else{
-            document.getElementById("nota").value = nota;
+            document.getElementById("nota").value = toTrunc(nota,2);
             
         }
     }   
