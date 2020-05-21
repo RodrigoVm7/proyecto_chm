@@ -48,11 +48,8 @@
 	</tbody>
 </table>
 
-<<<<<<< HEAD
 <a href="{{ url('/academicos') }}" class="btn btn-success" >Regresar</a>
-=======
-<a href="{{ url('admin/academicos') }}" class="btn btn-success" >Volver</a>
->>>>>>> 42a19d570bc808b6b9e1ceecfca9d33a84df2615
+
 
 </div>
 @endsection

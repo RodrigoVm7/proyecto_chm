@@ -88,8 +88,14 @@ class ReportesController extends Controller{
         $periodo=$request->input('periodo');
         $subida=0;
         $datos=Periodo::where('año','=',$periodo)->first();
-        return view('reportes.buscar',compact('datos','subida'));
+        if($datos==""){
+            return redirect('reportes')->with('Mensaje','El periodo no existe');
+        }else{
+            return view('reportes.buscar',compact('datos','subida'));
+        }
     }
+       
+    
 
     /* Función que retorna a la página principal de la pestaña Reportes, pero esta vez con un boton habilitado que permite subir un archivo
        a cada periodo visualizado. */
