@@ -81,6 +81,8 @@ class AcademicoSeeder extends Seeder
             'estado'=>'ACTIVO'
         ]);
 
+        // DECANOS ************************************
+
         DB::table('Academico')->insert([
             'rut'=>'19347258',
             'nombre'=>'Camilo',
@@ -94,6 +96,65 @@ class AcademicoSeeder extends Seeder
             'tipo_planta'=>'SI',
             'estado'=>'ACTIVO'
         ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19386399',
+            'nombre'=>'Moises',
+            'apellido'=>'Alcayaga',
+            'titulo'=>'Ingeniero Civil Industrial',
+            'grado_academico'=>'Doctorado en Ciencias Medicas',
+            'departamento'=>'Departamento de Ciencias Clinicas',
+            'facultad'=>'Facultad de Ciencias de la Ingenieria',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19387647',
+            'nombre'=>'Miguel',
+            'apellido'=>'Gutierrez',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Doctorado en Ciencias Matematicas',
+            'departamento'=>'Departamento de Ciencias',
+            'facultad'=>'Facultad de Ciencias Basicas',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19388144',
+            'nombre'=>'Alfredo',
+            'apellido'=>'Perez',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Doctorado en Ciencias Sociales',
+            'departamento'=>'Departamento de Economia y Administracion',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19389013',
+            'nombre'=>'Cecilia',
+            'apellido'=>'Nova',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Doctorado en Ciencias Matematicas',
+            'departamento'=>'Departamento de Formacion Inicial Escolar',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+//************************************************** */
+
+        
 
 
 

@@ -59,10 +59,11 @@ class DepartamentoSeeder extends Seeder
             'estado'=>'ACTIVO',
         ]);
 
-        
-
-
-
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Economia y Administracion',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'estado'=>'ACTIVO',
+        ]);
 
     }
 }
