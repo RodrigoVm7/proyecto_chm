@@ -31,9 +31,10 @@ class EvaluacionController extends Controller{
 
     /* Funcion que retorna a la pagina que permite crear una nueva evaluacion*/
     public function evaluar(Request $request){
+        $periodoActual=Periodo::where('estado','=','ACTIVO')->first();
         $datosAcademico=Academico::where('rut','=',$request->rutAcademico)->first();
         $datosComision=Comision::where('id_comision','=',$request->comision)->first();
-        $yaEvaluado=Evaluacion::where('rut_academico','=',$datosAcademico->rut)->where('año','=',$datosComision->año)->first();
+        $yaEvaluado=Evaluacion::where('rut_academico','=',$datosAcademico->rut)->where('año','=',$periodoActual->año)->first();
         if($yaEvaluado!=""){
             return view('evaluacion.actualizar')->with('id_evaluacion',$yaEvaluado->id)->with('Mensaje', 'El académico seleccionado ya ha sido Evaluado. ¿Desea editar la evaluación?');
         }else{
