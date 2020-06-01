@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script type="text/javascript" src="{!! asset('js/evaluar.js') !!}"></script>
+
 <div class="container">
 
 <!-- Seccion que permite mostrar mensajes en pantalla-->
@@ -14,8 +16,10 @@
 <form action="{{url('/evaluacion/update')}}" class="form-horizontal" method="post">
 	{{ csrf_field() }}
 
+	<a class="btn btn-primary" style="border:none;color:white;padding: 15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size: 16px;margin: 4px 2px;width: 100%;cursor: pointer;" onclick="Mostrar_ocultar('ident_academic');">Identificación Académico</a>
+	<br>
+  	<section id="ident_academic" style="display: none">
 	<div class="panel panel-primary">
-  		<div class="panel-heading"><b>Identificación Académico</b></div>
   			<div class="panel-body">
   				<ul class="list-group">
     				<li class="list-group-item">Rut: <input type="text" class="form-control {{$errors->has('rutAcademico')?'is-invalid':''}}" name="rutAcademico" id="rutAcademico" value="{{ $data->rut_academico}}" readonly></li>
@@ -30,9 +34,11 @@
   				</ul>
   		</div>
 	</div>
+	</section>
 
-	<br><br>
-	<b>Calificación Académica</b>
+	<a class="btn btn-primary" style="border:none;color:white;padding: 15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size: 16px;margin: 4px 2px;width: 100%;cursor: pointer;" onclick="Mostrar_ocultar('calification');">Calificación Académica</a>
+	<br>
+	<section id="calification" style="display: none">
 		<table class="table table-light table-hover">
 			<thread class="thread-light">
 				<tr>
@@ -339,18 +345,20 @@
 				  Regular = 3.4 a 2.7  Deficiente = menos de 2.7</li>
 		</ul>
 		</div>
-</div>
+	</div>
+	</section>
 
-	<br><br>	
-	<b>Argumentos de la Calificación Final</b>
+	<a class="btn btn-primary" style="border:none;color:white;padding: 15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size: 16px;margin: 4px 2px;width: 100%;cursor: pointer;" onclick="Mostrar_ocultar('arg_calif');">Argumentos de la Calificación Final</a>
+	<br>
+	<section id="arg_calif" style="display: none">
 	<div class="panel-body">
   		<ul class="list-group">
     		<li class="list-group-item"><input type="text" class="form-control {{$errors->has('comentarios')?'is-invalid':''}}" name="comentarios" id="comentarios" value="{{$data->comentarios}}"></li>
   		</ul>
   	</div>
+  	</section>
 
-  	<br><br>
-
+  	<br>
 	<div class="panel-body">
   		<ul class="list-group">
     		<li class="list-group-item">Miembro Uno: <input type="text" class="form-control {{$errors->has('miembro1')?'is-invalid':''}}" name="miembro1" id="miembro1" value="{{ $data->miembro1}}" readonly></li>

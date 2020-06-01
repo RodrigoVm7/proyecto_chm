@@ -28,6 +28,16 @@ function toTrunc(value,n){
     return parseFloat(x[0]+"."+x[1].substr(0,n));
 }
 
+function Mostrar_ocultar(id){
+    var id=document.getElementById(id);
+    /*var id=document.getElementById("ident");*/
+    if(id.style.display == "none"){
+        id.style.display = "block";
+    }else{
+        id.style.display = "none";
+    }
+}
+
 function prom1(valor,tipo){
     valor=parseFloat(valor);
     
