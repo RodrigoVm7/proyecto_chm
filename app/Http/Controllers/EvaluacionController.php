@@ -226,8 +226,7 @@ class EvaluacionController extends Controller{
             $t5c = ($t5*$request->input('5e'))/100 + ($t5*$request->input('5mb'))/100 + ($t5*$request->input('5b'))/100 + ($t5*$request->input('5r'))/100 + ($t5*$request->input('5d'))/100;
             $t5c = floatval(bcdiv($t5c, '1',1));
         }
-        $notaFinal=$t1c+$t2c+$t3c+$t4c+$t5c;
-
+        $notaFinal=floatval(bcdiv($t1c+$t2c+$t3c+$t4c+$t5c, '1',1));
         /*
         Una vez calculada la nota y las ponderaciones, se ingresan todos los datos a un objeto de tipo "evaluacion", el cual finalmente se ingresa a la Base de Datos. */
         $evaluacion = new Evaluacion();
