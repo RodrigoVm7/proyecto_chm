@@ -83,6 +83,17 @@ function prom1(valor,tipo){
     }
     else if(tipo==0){
         t1=valor;
+        if(document.getElementById("1e").value != ""){
+            ot1=document.getElementById("1e").value;
+        }else if(document.getElementById("1mb").value != ""){
+            ot1=document.getElementById("1mb").value;
+        }else if(document.getElementById("1b").value != ""){
+            ot1=document.getElementById("1b").value;
+        }else if(document.getElementById("1r").value != ""){
+            ot1=document.getElementById("1r").value;
+        }else if(document.getElementById("1d").value != ""){
+            ot1=document.getElementById("1d").value;
+        }
     }
     else if(tipo==1){
         ot1=valor;
@@ -171,7 +182,17 @@ function prom2(valor,tipo){
     }
     else if(tipo==0){
         t2=valor;
-        ot2=0;
+        if(document.getElementById("2e").value != ""){
+            ot2=document.getElementById("2e").value;
+        }else if(document.getElementById("2mb").value != ""){
+            ot2=document.getElementById("2mb").value;
+        }else if(document.getElementById("2b").value != ""){
+            ot2=document.getElementById("2b").value;
+        }else if(document.getElementById("2r").value != ""){
+            ot2=document.getElementById("2r").value;
+        }else if(document.getElementById("2d").value != ""){
+            ot2=document.getElementById("2d").value;
+        }
     }
     else if(tipo==1){
         ot2=valor;
@@ -261,7 +282,17 @@ function prom3(valor,tipo){
     }
     else if(tipo==0){
         t3=valor;
-        ot3=0;
+        if(document.getElementById("3e").value != ""){
+            ot3=document.getElementById("3e").value;
+        }else if(document.getElementById("3mb").value != ""){
+            ot3=document.getElementById("3mb").value;
+        }else if(document.getElementById("3b").value != ""){
+            ot3=document.getElementById("3b").value;
+        }else if(document.getElementById("3r").value != ""){
+            ot3=document.getElementById("3r").value;
+        }else if(document.getElementById("3d").value != ""){
+            ot3=document.getElementById("3d").value;
+        }
     }
     else if(tipo==1){
         ot3=valor;
@@ -351,7 +382,17 @@ function prom4(valor,tipo){
     }
     else if(tipo==0){
         t4=valor;
-        ot4=0;
+        if(document.getElementById("4e").value != ""){
+            ot4=document.getElementById("4e").value;
+        }else if(document.getElementById("4mb").value != ""){
+            ot4=document.getElementById("4mb").value;
+        }else if(document.getElementById("4b").value != ""){
+            ot4=document.getElementById("4b").value;
+        }else if(document.getElementById("4r").value != ""){
+            ot4=document.getElementById("4r").value;
+        }else if(document.getElementById("4d").value != ""){
+            ot4=document.getElementById("4d").value;
+        }
     }
     else if(tipo==1){
         ot4=valor;
@@ -441,7 +482,17 @@ function prom5(valor,tipo){
     }
     else if(tipo==0){
         t5=valor;
-        ot5=0;
+        if(document.getElementById("5e").value != ""){
+            ot5=document.getElementById("5e").value;
+        }else if(document.getElementById("5mb").value != ""){
+            ot5=document.getElementById("5mb").value;
+        }else if(document.getElementById("5b").value != ""){
+            ot5=document.getElementById("5b").value;
+        }else if(document.getElementById("5r").value != ""){
+            ot5=document.getElementById("5r").value;
+        }else if(document.getElementById("5d").value != ""){
+            ot5=document.getElementById("5d").value;
+        }
     }
     else if(tipo==1){
         ot5=valor;
