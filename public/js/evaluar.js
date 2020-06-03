@@ -123,7 +123,7 @@ function prom1(valor,tipo){
     else if(tipo==4){
         ot1=valor;
         document.getElementById("1e").readOnly = true;
-        document.getElementById("1r").value = "";
+        document.getElementById("1e").value = "";
         document.getElementById("1mb").readOnly =true;
         document.getElementById("1mb").value = "";
         document.getElementById("1b").readOnly = true;
