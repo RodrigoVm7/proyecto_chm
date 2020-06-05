@@ -1,33 +1,35 @@
-var t1=0;
-var ot1=0;
-t1=parseFloat(t1);
-ot1=parseFloat(ot1);
+var t1=0; //Variable tiempo asignado actividad 1 
+var ot1=0; // Variable nota actividad 1
+t1=parseFloat(t1); // Casteo a flotante variable tiempo asignado actividad 1
+ot1=parseFloat(ot1); // Casteo a flotante variable nota actividad 1
 
-var t2=0;
-var ot2=0;
-t2=parseFloat(t2);
-ot2=parseFloat(ot2);
+var t2=0; //Variable tiempo asignado actividad 2 
+var ot2=0; // Variable nota actividad 2
+t2=parseFloat(t2); // Casteo a flotante variable tiempo asignado actividad 2
+ot2=parseFloat(ot2); // Casteo a flotante variable nota actividad 2
 
-var t3=0;
-var ot3=0;
-t3=parseFloat(t3);
-ot3=parseFloat(ot3);
+var t3=0; //Variable tiempo asignado actividad 3
+var ot3=0; // Variable nota actividad 3
+t3=parseFloat(t3); // Casteo a flotante variable tiempo asignado actividad 3
+ot3=parseFloat(ot3); // Casteo a flotante variable nota actividad 3
 
-var t4=0;
-var ot4=0;
-t4=parseFloat(t4);
-ot4=parseFloat(ot4);
+var t4=0; //Variable tiempo asignado actividad 4
+var ot4=0; // Variable nota actividad 4
+t4=parseFloat(t4); // Casteo a flotante variable tiempo asignado actividad 4
+ot4=parseFloat(ot4); // Casteo a flotante variable nota actividad 4
 
-var t5=0;
-var ot5=0;
-t5=parseFloat(t5);
-ot5=parseFloat(ot5);
+var t5=0; //Variable tiempo asignado actividad 5
+var ot5=0; // Variable nota actividad 5
+t5=parseFloat(t5); // Casteo a flotante variable tiempo asignado actividad 5
+ot5=parseFloat(ot5); // Casteo a flotante variable nota actividad 5
 
+// Funcion para truncar un valor asignado por parametro de entrada
 function toTrunc(value,n){
     var x=(value.toString()+".0").split(".");
     return parseFloat(x[0]+"."+x[1].substr(0,n));
 }
 
+//Funcion para mostrar u ocultar una seccion de la vista de evualuacion
 function Mostrar_ocultar(id){
     var id=document.getElementById(id);
     if(id.style.display == "none"){
@@ -37,6 +39,7 @@ function Mostrar_ocultar(id){
     }
 }
 
+// Funcion que calcula la suma los calculos de nota obtenido por cada actividad generando el promedio de evaluacion
 function calcular_promedio(){
     var tc1 = parseFloat(document.getElementById("1tc").value);
     var tc2 = parseFloat(document.getElementById("2tc").value);
@@ -65,6 +68,8 @@ function calcular_promedio(){
     }    
 }
 
+
+// Función para calcular la nota de actividad 1 ((t1*ot1)/100) y manejo de atributo readonly en las casillas correspondientes
 function prom1(valor,tipo){
     valor=parseFloat(valor);
     if(isNaN(valor)){
@@ -164,6 +169,7 @@ function prom1(valor,tipo){
     calcular_promedio();
 }
 
+// Función para calcular la nota de actividad 2 ((t2*ot2)/100) y manejo de atributo readonly en las casillas correspondientes
 function prom2(valor,tipo){
     valor=parseFloat(valor);
     if(isNaN(valor)){
@@ -262,7 +268,7 @@ function prom2(valor,tipo){
     }
     calcular_promedio();
 }
-
+// Función para calcular la nota de actividad 3 ((t3*ot3)/100) y manejo de atributo readonly en las casillas correspondientes
 function prom3(valor,tipo){
     valor=parseFloat(valor);
     
@@ -362,7 +368,7 @@ function prom3(valor,tipo){
     }
     calcular_promedio();
 }
-
+// Función para calcular la nota de actividad 4 ((t4*ot4)/100) y manejo de atributo readonly en las casillas correspondientes
 function prom4(valor,tipo){
     valor=parseFloat(valor);
     
@@ -462,7 +468,7 @@ function prom4(valor,tipo){
     }
     calcular_promedio();
 }
-
+// Función para calcular la nota de actividad 5 ((t5*ot5)/100) y manejo de atributo readonly en las casillas correspondientes
 function prom5(valor,tipo){
     valor=parseFloat(valor);
     
