@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/index') }}">
                 <img src="{{asset('images/m_ucm.png')}}" width="50" height="50">
                     {{'Sistema SEA'}}
                 </a>

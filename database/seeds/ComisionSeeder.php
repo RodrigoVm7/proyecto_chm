@@ -19,7 +19,7 @@ class ComisionSeeder extends Seeder
             'miembro1'=>'Marcelo Alvarez',
             'miembro2'=>'Ronald Figueroa',
             'fecha_pie'=>'2019-04-26',
-            'estado'=>'ACTIVO',
+            'estado'=>'INACTIVO',
 
         ]);
 
@@ -31,7 +31,7 @@ class ComisionSeeder extends Seeder
             'miembro1'=>'Roberto Iglesias',
             'miembro2'=>'Juan Montes',
             'fecha_pie'=>'2019-12-26',
-            'estado'=>'ACTIVO',
+            'estado'=>'INACTIVO',
 
         ]);
 

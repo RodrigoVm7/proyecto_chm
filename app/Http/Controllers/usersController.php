@@ -15,13 +15,21 @@ class usersController extends Controller {
 
     public function index(Request $request){
         
-    	$tipo=$request->user()->permiso;
-    	if($tipo=='Admin'){
-    		return view('admin.index');
-    	}else{
-    		return view('secretario.index');
-    	}
+        if($request->user()){
+            $tipo=$request->user()->permiso;
+            if($tipo=='Admin'){
+                return view('admin.index');
+            }
+            if ($tipo=='Secretario'){
+                return view('secretario.index');
+            }
+        }else{
+            return view('welcome');
+        }
     }
+
+        
+    
 
     /* Funcion que retorna a la pagina principal de la pestaña Usuarios en el menu de Administrador, junto con los datos de los usuarios
        existentes. */
