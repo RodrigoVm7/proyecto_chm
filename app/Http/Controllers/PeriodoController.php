@@ -16,8 +16,9 @@ class PeriodoController extends Controller{
 
     /* Funcion que recibe los datos de la pagina principal de la pestaña Periodo. Recibe los datos del periodo a seleccionar y la accion a
        ejecutar, la cual puede ser activar o desactivar dicho periodo*/
-    public function accion(Request $request){
+    public function accion(Request $request){ 
 		$request->user()->authorizeRoles(['Admin']);
+		$activos=Periodo::where('estado','=','ACTIVO')->get();
     	/*Validación de que se ingresa el campo*/
     	$campos=[
             'year' => 'required|string|min:4'
@@ -36,8 +37,12 @@ class PeriodoController extends Controller{
     	$estado=Periodo::where('año','=',$año)->get('estado')->first();
     	if($accion=="Iniciar Periodo"){
     		if($estado->estado=="INACTIVO"){
-    			Periodo::where('año','=',$año)->update(['estado'=>"ACTIVO"]);
-        		return redirect('admin/periodos')->with('Mensaje','El periodo ahora está activo');
+				if($activos->count()<1){
+					Periodo::where('año','=',$año)->update(['estado'=>"ACTIVO"]);
+					return redirect('admin/periodos')->with('Mensaje','El periodo ahora está activo');
+				}else{
+					return redirect('admin/periodos')->with('Mensaje','No se pueden tener mas de un periodo activo');
+				}
     		}else{
     			return redirect('admin/periodos')->with('Mensaje','El periodo ya se encuentra activo');
     		}
