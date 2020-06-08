@@ -39,7 +39,7 @@ function Mostrar_ocultar(id){
     }
 }
 
-// Funcion que calcula la suma los calculos de nota obtenido por cada actividad generando el promedio de evaluacion
+// Funcion que calcula la suma los calculos de nota obtenido por cada actividad generando el promedio de evaluacion del docente
 function calcular_promedio(){
     var tc1 = parseFloat(document.getElementById("1tc").value);
     var tc2 = parseFloat(document.getElementById("2tc").value);
