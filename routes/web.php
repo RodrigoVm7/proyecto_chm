@@ -54,8 +54,9 @@ Route::post('/admin/añoPeriodo','PeriodoController@accion');
 Route::get('/evaluacion','EvaluacionController@index');
 Route::post('/evaluar','EvaluacionController@evaluar');
 Route::post('/guardarEvaluacion','EvaluacionController@store');
-Route::get('/evaluacion/actualizar/{id_evaluacion}','EvaluacionController@actualizar');
+Route::get('/evaluacion/actualizar/{rut_academico}','EvaluacionController@actualizar');
 Route::post('/evaluacion/update','EvaluacionController@update');
+Route::get('/evaluacion/ver/{rut_academico}','EvaluacionController@verEvaluacion');
 
 Route::get('/reportes','ReportesController@index');
 Route::get('/generarPDF/{periodo}','ReportesController@generarPDF');
