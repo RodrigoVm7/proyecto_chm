@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+
 use App\Evaluacion;
 use App\Periodo;
 use App\Comision;
 use App\Academico;
 use App\Departamento;
-use Illuminate\Http\Request;
 
 class EvaluacionController extends Controller{
 
@@ -181,7 +183,11 @@ class EvaluacionController extends Controller{
     }
 
     public function verEvaluacion($rut_academico){
-        return response()->json("pauta resumen . pdf");
+        $academico=Academico::where('rut','=',$rut_academico)->first();
+        $datos=Evaluacion::where('rut_academico','=',$rut_academico)->first();
+        $pdf=PDF::loadView('academico.pdf',compact('academico','datos'));
+        //return $pdf->download('reporte-'.$rut_academico.'.pdf');
+        return $pdf->stream('reporte.pdf');
     }
 
     /* Funcion que recibe los datos del formulario para editar una evaluacion, para posteriormente ingresar a la base de datos la 
