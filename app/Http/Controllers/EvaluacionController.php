@@ -20,26 +20,24 @@ class EvaluacionController extends Controller{
         }else{
             $facultadUsuario=auth()->user()->facultad;
             $comisiones=Comision::where('facultad','=',$facultadUsuario)->where('estado','=','ACTIVO')->get();
-            $academicos=Academico::where('facultad','=',$facultadUsuario)->paginate(5);
+
+            $evaluados=Evaluacion::select('rut_academico')->get()->toArray();
+
+            $academicos=Academico::where('facultad','=',$facultadUsuario)->whereNotIn('rut',$evaluados)->paginate(5);
+            $yaEvaluados=Academico::where('facultad','=',$facultadUsuario)->whereIn('rut',$evaluados)->paginate(5);
             if($comisiones=="[]"){
                 return view('evaluacion.index')->with('comisiones',$comisiones)->with('academicos',$academicos)->with('facultadUsuario',$facultadUsuario)->with('Mensaje','No Existen Comisiones Configuradas para esta Facultad');
             }else{
-                return view('evaluacion.index',compact('comisiones','academicos','facultadUsuario'));
+                return view('evaluacion.index',compact('comisiones','academicos','facultadUsuario','yaEvaluados'));
             }
         }
     }
 
     /* Funcion que retorna a la pagina que permite crear una nueva evaluacion*/
     public function evaluar(Request $request){
-        $periodoActual=Periodo::where('estado','=','ACTIVO')->first();
         $datosAcademico=Academico::where('rut','=',$request->rutAcademico)->first();
         $datosComision=Comision::where('id_comision','=',$request->comision)->first();
-        $yaEvaluado=Evaluacion::where('rut_academico','=',$datosAcademico->rut)->where('año','=',$periodoActual->año)->first();
-        if($yaEvaluado!=""){
-            return view('evaluacion.actualizar')->with('id_evaluacion',$yaEvaluado->id)->with('Mensaje', 'El académico seleccionado ya ha sido Evaluado. ¿Desea editar la evaluación?');
-        }else{
-            return view('evaluacion.create',compact('datosAcademico','datosComision'));   
-        }
+        return view('evaluacion.create',compact('datosAcademico','datosComision'));   
     }
 
     /* Funcion que recibe los datos del formulario para crear una nueva evaluacion, para posteriormente ingresarla a la base de datos*/
@@ -176,9 +174,14 @@ class EvaluacionController extends Controller{
     }
 
     /* Funcion que retorna a la pagina que permite editar una evaluacion anteriormente realizada*/
-    public function actualizar($id_evaluacion){
-        $data=Evaluacion::where('id','=',$id_evaluacion)->first();
+    public function actualizar($rut_academico){
+        $periodoActual=Periodo::where('estado','=',"ACTIVO")->first();
+        $data=Evaluacion::where('rut_academico','=',$rut_academico)->where('año','=',$periodoActual->año)->first();
         return view('evaluacion.edit',compact('data'));
+    }
+
+    public function verEvaluacion($rut_academico){
+        return response()->json("pauta resumen . pdf");
     }
 
     /* Funcion que recibe los datos del formulario para editar una evaluacion, para posteriormente ingresar a la base de datos la 
