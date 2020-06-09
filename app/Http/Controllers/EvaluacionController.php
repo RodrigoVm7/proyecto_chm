@@ -187,8 +187,15 @@ class EvaluacionController extends Controller{
     public function verEvaluacion($rut_academico){
         $academico=Academico::where('rut','=',$rut_academico)->first();
         $datos=Evaluacion::where('rut_academico','=',$rut_academico)->first();
-        $pdf=PDF::loadView('academico.pdf',compact('academico','datos'));
-        return $pdf->stream('reporte.pdf');
+        $periodoActual=Periodo::where('estado','=','ACTIVO')->select('año')->first();
+        $notaAnterior=Evaluacion::where('rut_academico','=',$rut_academico)->where('año','=',$periodoActual->año-1)->select('nota_final')->first();
+        if($notaAnterior==""){
+            $notaAnterior="-.";
+        }else{
+            $notaAnterior=$notaAnterior->nota_final;
+        }
+        $pdf=PDF::loadView('academico.pdf',compact('academico','datos','notaAnterior'));
+        return $pdf->stream('reporte-'.$rut_academico.'.pdf');
         //return $pdf->download('reporte-'.$rut_academico.'.pdf');
     }
 

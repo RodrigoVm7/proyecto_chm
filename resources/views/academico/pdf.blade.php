@@ -101,7 +101,7 @@
 				<th>Tipo de Planta</th>		
 			</tr>
 			<tr>
-				<td>Era</td>
+				<td>{{$notaAnterior}}</td>
 				<td>{{$academico->tipo_planta}}</td>
 			</tr>
 		</tbody>
