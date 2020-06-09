@@ -186,8 +186,8 @@ class EvaluacionController extends Controller{
         $academico=Academico::where('rut','=',$rut_academico)->first();
         $datos=Evaluacion::where('rut_academico','=',$rut_academico)->first();
         $pdf=PDF::loadView('academico.pdf',compact('academico','datos'));
-        //return $pdf->download('reporte-'.$rut_academico.'.pdf');
         return $pdf->stream('reporte.pdf');
+        //return $pdf->download('reporte-'.$rut_academico.'.pdf');
     }
 
     /* Funcion que recibe los datos del formulario para editar una evaluacion, para posteriormente ingresar a la base de datos la 
