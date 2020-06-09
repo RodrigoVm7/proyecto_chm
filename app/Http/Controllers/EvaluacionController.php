@@ -23,7 +23,8 @@ class EvaluacionController extends Controller{
             $facultadUsuario=auth()->user()->facultad;
             $comisiones=Comision::where('facultad','=',$facultadUsuario)->where('estado','=','ACTIVO')->get();
 
-            $evaluados=Evaluacion::select('rut_academico')->get()->toArray();
+            $evaluados=Evaluacion::where('año','=',$datosPeriodo[0]->año)->select('rut_academico')->get()->toArray();
+            //return response()->json($evaluados);
 
             $academicos=Academico::where('facultad','=',$facultadUsuario)->whereNotIn('rut',$evaluados)->paginate(5);
             $yaEvaluados=Academico::where('facultad','=',$facultadUsuario)->whereIn('rut',$evaluados)->paginate(5);
@@ -39,7 +40,8 @@ class EvaluacionController extends Controller{
     public function evaluar(Request $request){
         $datosAcademico=Academico::where('rut','=',$request->rutAcademico)->first();
         $datosComision=Comision::where('id_comision','=',$request->comision)->first();
-        return view('evaluacion.create',compact('datosAcademico','datosComision'));   
+        $periodo=Periodo::where('estado','=','ACTIVO')->first();
+        return view('evaluacion.create',compact('datosAcademico','datosComision','periodo'));   
     }
 
     /* Funcion que recibe los datos del formulario para crear una nueva evaluacion, para posteriormente ingresarla a la base de datos*/

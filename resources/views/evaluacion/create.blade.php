@@ -370,8 +370,8 @@
 
     		<li class="list-group-item">Miembro Dos: <input type="text" class="form-control {{$errors->has('miembro2')?'is-invalid':''}}" name="miembro2" id="miembro2" value="{{ $datosComision->miembro2}}" readonly></li>
 
-    		<input type="text" class="form-control {{$errors->has('año')?'is-invalid':''}}" name="año" id="año" value="{{ $datosComision->año}}" hidden=></li>
-    		<input type="text" class="form-control {{$errors->has('id_comision')?'is-invalid':''}}" name="id_comision" id="id_comision" value="{{ $datosComision->id_comision}}" hidden=></li>
+    		<input type="text" class="form-control {{$errors->has('año')?'is-invalid':''}}" name="año" id="año" value="{{ $periodo->año}}" hidden></li>
+    		<input type="text" class="form-control {{$errors->has('id_comision')?'is-invalid':''}}" name="id_comision" id="id_comision" value="{{ $datosComision->id_comision}}" hidden></li>
   		</ul>
   	</div>
 
