@@ -10,6 +10,7 @@ use App\Exports\EvaluacionesExport;
 use App\Periodo;
 use App\Evaluacion;
 use App\Firmas;
+use App\Academico;
 
 class ReportesController extends Controller{
 
@@ -24,11 +25,24 @@ class ReportesController extends Controller{
        un archivo en formato PDF con dicha información, el cuál es descargado por el usuario. */
     public function generarPDF($periodo){
         $datos=Evaluacion::where('año','=',$periodo)->where('facultad','=',auth()->user()->facultad)->get();
+        $k=0;
         if($datos=="[]"){
             return redirect('reportes')->with('Mensaje','Esta Facultad No Presenta Evaluaciones Para El Periodo Seleccionado');
         }else{
-            $pdf=PDF::loadView('reportes.pdf',compact('datos'))->setPaper('a4','landscape');
-            return $pdf->download('reporte-'.$periodo.'.pdf');
+            for($i=0;$i<count($datos);$i++){
+                $notaAnterior=Evaluacion::where('rut_academico','=',$datos[$i]->rut_academico)->where('año','=',$datos[$i]->año-1)->select('nota_final')->first();
+                if($notaAnterior==""){
+                    $notaAnterior="-";
+                }else{
+                    $notaAnterior=$notaAnterior['nota_final'];
+                }
+                $datos[$i]->nAnterior=$notaAnterior;
+                $cat=Academico::where('rut','=',$datos[$i]->rut_academico)->select('categoria')->first();
+                $datos[$i]->categoria=$cat['categoria'];
+            }
+            $pdf=PDF::loadView('reportes.pdf',compact('datos','periodo'))->setPaper('a3','landscape');
+            //return $pdf->download('reporte-'.$periodo.'.pdf');
+            return $pdf->stream('reporte-'.$periodo.'.pdf');
         }
     }
 
