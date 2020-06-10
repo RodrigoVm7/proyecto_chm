@@ -199,6 +199,19 @@ class EvaluacionController extends Controller{
         //return $pdf->download('reporte-'.$rut_academico.'.pdf');
     }
 
+    public function pruebaEvaluacion($rut_academico){
+        $academico=Academico::where('rut','=',$rut_academico)->first();
+        $datos=Evaluacion::where('rut_academico','=',$rut_academico)->first();
+        $periodoActual=Periodo::where('estado','=','ACTIVO')->select('año')->first();
+        $notaAnterior=Evaluacion::where('rut_academico','=',$rut_academico)->where('año','=',$periodoActual->año-1)->select('nota_final')->first();
+        if($notaAnterior==""){
+            $notaAnterior="-.";
+        }else{
+            $notaAnterior=$notaAnterior->nota_final;
+        }
+        return view('academico.pdf',compact('academico','datos','notaAnterior'));
+    }
+
     /* Funcion que recibe los datos del formulario para editar una evaluacion, para posteriormente ingresar a la base de datos la 
        información actualizada*/
     public function update(Request $request){

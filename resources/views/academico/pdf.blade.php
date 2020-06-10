@@ -5,12 +5,17 @@
 	<title></title>
 
 	<style>
+		html {
+			font-size: 9px;
+		}
+
 		table, td, th {
   			border: 1px solid black;
+			border-collapse:collapse;
+			padding: 0;
+			font-size: 12px;
 		}
-		th {
-  			height: 50px;
-		}
+		
     	#vertical-bar {
         	border-left: 1px solid #ccc;
         	width:1px;
@@ -21,7 +26,7 @@
 		}
 		header {
             position: fixed;
-            top: 0cm;
+            top: -0.8cm;
             left: 0cm;
             right: 0cm;
             height: 2cm;
@@ -30,9 +35,9 @@
             line-height: 30px;
         }
         div.noticia {
-  			background-color: white;
+  			background-color: #fff;
   			color: #6c6c6c;
-  			padding: 15px;
+  			/* padding: 10px; */
 		}
 
 		div.noticia img.izquierda {
@@ -48,70 +53,71 @@
 	<img class="izquierda" src="images/ucm_3.png" width="8%" height="80%"><aside>VICERRECTORIA ACADÉMICA<br>COMISIÓN PROMOCIÓN ACADÉMICA</aside>
 </div>
 </header>
-<br><br><br><br>
-<body>
-	<main><h2><center><u>PAUTA RESUMEN: Profesor {{$academico->categoria}}</u></center></h2></main>
-<br>
-<h3><u>I. IDENTIFICACIÓN:</u></h3>
-<div class="w3-container">
-	<table class="w3-table-all" WIDTH="30%">
+<br><br>
+
+
+<body style="width: 100%;">
+	<main><h3><center><u><b>PAUTA RESUMEN: Profesor {{$academico->categoria}}</b></u></center></h3></main>
+<h4><u>I. Identificación:</u></h4>
+<div class="w3-container" style="text-align:center; width: 100%;">
+	<table class="w3-table-all" style="width: 100%;">
 		<tbody>
 			<tr>
-				<th>Académico</th>
-				<th>Departamento</th>		
+				<th style="text-align: center">Académico</th>
+				<th style="text-align: center">Departamento</th>		
 			</tr>
 			<tr>
-				<td>{{$academico->nombre}} {{$academico->apellido}}</td>
-				<td>{{$academico->departamento}}</td>
+				<td style="text-align: center">{{$academico->nombre}} {{$academico->apellido}}</td>
+				<td style="text-align: center">{{$academico->departamento}}</td>
 			</tr>
 		</tbody>
 		<tbody>
 			<tr>
-				<th>Facultad</th>
-				<th>Periodo</th>		
+				<th style="text-align: center">Facultad</th>
+				<th style="text-align: center">Periodo</th>		
 			</tr>
 			<tr>
-				<td>{{$academico->facultad}}</td>
-				<td>{{$datos->año}}</td>
-			</tr>
-		</tbody>
-		<tbody>
-			<tr>
-				<th>Título Profesional</th>
-				<th>Horas de Contrato</th>		
-			</tr>
-			<tr>
-				<td>{{$academico->titulo}}</td>
-				<td>{{$academico->horas_contrato}}</td>
+				<td style="text-align: center">{{$academico->facultad}}</td>
+				<td style="text-align: center">{{$datos->año}}</td>
 			</tr>
 		</tbody>
 		<tbody>
 			<tr>
-				<th>Categoría</th>
-				<th>Grado Académico</th>		
+				<th style="text-align: center">Título Profesional</th>
+				<th style="text-align: center">Horas de Contrato</th>		
 			</tr>
 			<tr>
-				<td>{{$academico->categoria}}</td>
-				<td>{{$academico->grado_academico}}</td>
+				<td style="text-align: center">{{$academico->titulo}}</td>
+				<td style="text-align: center">{{$academico->horas_contrato}}</td>
 			</tr>
 		</tbody>
 		<tbody>
 			<tr>
-				<th>Calificación Anterior</th>
-				<th>Tipo de Planta</th>		
+				<th style="text-align: center">Categoría</th>
+				<th style="text-align: center">Grado Académico</th>		
 			</tr>
 			<tr>
-				<td>{{$notaAnterior}}</td>
-				<td>{{$academico->tipo_planta}}</td>
+				<td style="text-align: center">{{$academico->categoria}}</td>
+				<td style="text-align: center">{{$academico->grado_academico}}</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<th style="text-align: center">Calificación Anterior</th>
+				<th style="text-align: center">Tipo de Planta</th>		
+			</tr>
+			<tr>
+				<td style="text-align: center">{{$notaAnterior}}</td>
+				<td style="text-align: center">{{$academico->tipo_planta}}</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
-<div class="page-break"></div>
-<br><br><br><br>
-<h3>II. Calificación Académica:</h3>
-<div class="w3-container">
-	<table>
+<!-- <div class="page-break"></div> -->
+
+<h4>II. Calificación Académica:</h4>
+<div>
+	<table style="margin: 0 auto;">
 			<tr>
 				<th rowspan="2"></th>
 				<th rowspan="2">% TIEMPO ASIGNADO A TAREAS PROGRAMADAS</th>
@@ -184,17 +190,18 @@
 </div>
 
 <br><br>
-<h3>III. ESCALA EVALUATIVA:</h3>
+<h4>III. ESCALA EVALUATIVA:</h4>
 <div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 			<tr>
-				<th><center>ESCALA:Excelente = 4,5 a 5      Muy Bueno = 4,0 a 4,4<br>Regular = 3,4 a 2,7    Deficiente = menos de 2,7 Bueno: 3,5 a 3,9</center></th>
+				<th style="font-size: 14px;"><center>ESCALA:Excelente = 4,5 a 5      Muy Bueno = 4,0 a 4,4<br>Regular = 3,4 a 2,7    Deficiente = menos de 2,7 Bueno: 3,5 a 3,9</center></th>
 			</tr>
 	</table>
 </div>
 
-<br><br>
-<h3>IV. ARGUMENTOS DE LA CALIFICACIÓN FINAL:</h3>
+<br>
+<div class="page-break"></div>
+<h4 style="margin-top: 30px;">IV. ARGUMENTOS DE LA CALIFICACIÓN FINAL:</h4>
 <div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 			<tr>
@@ -202,10 +209,8 @@
 			</tr>
 	</table>
 </div>
-
-<div class="page-break"></div>
-<br><br><br><br>
-<h3><center>FIRMA COMISIÓN</center></h3>
+<br>
+<h4><center>FIRMA COMISIÓN</center></h4>
 <div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 		<tr hidden=""></tr>
