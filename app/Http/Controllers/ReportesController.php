@@ -53,6 +53,17 @@ class ReportesController extends Controller{
         if($datos=="[]"){
             return redirect('reportes')->with('Mensaje','Esta Facultad No Presenta Evaluaciones Para El Periodo Seleccionado');
         }else{
+            for($i=0;$i<count($datos);$i++){
+                $notaAnterior=Evaluacion::where('rut_academico','=',$datos[$i]->rut_academico)->where('año','=',$datos[$i]->año-1)->select('nota_final')->first();
+                if($notaAnterior==""){
+                    $notaAnterior="-";
+                }else{
+                    $notaAnterior=$notaAnterior['nota_final'];
+                }
+                $datos[$i]->nAnterior=$notaAnterior;
+                $cat=Academico::where('rut','=',$datos[$i]->rut_academico)->select('categoria')->first();
+                $datos[$i]->categoria=$cat['categoria'];
+            }
             return Excel::download(new EvaluacionesExport($periodo), 'reporte-'.$periodo.'.xlsx');
         }
     }
