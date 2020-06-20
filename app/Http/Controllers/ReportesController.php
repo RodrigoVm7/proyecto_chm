@@ -15,10 +15,11 @@ use App\Academico;
 class ReportesController extends Controller{
 
     /* Función que retorna a la página principal de la pestaña Reportes, junto con los datos de los periodos disponibles. */
-    public function index(){
+    public function index(Request $request){
+        $color=$request->user()->color;
         $periodos=Periodo::where('estado','=','INACTIVO')->paginate(5);
         $subida=0;
-        return view('reportes.index',compact('periodos','subida'));
+        return view('reportes.index',compact('periodos','subida','color'));
     }
 
     /* Función que se encarga de recolectar información de las evaluaciones del periodo seleccionado, para posteriormente generar

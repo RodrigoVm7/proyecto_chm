@@ -23,6 +23,12 @@ var ot5=0; // Variable nota actividad 5
 t5=parseFloat(t5); // Casteo a flotante variable tiempo asignado actividad 5
 ot5=parseFloat(ot5); // Casteo a flotante variable nota actividad 5
 
+
+function cambiar_fondo(id){
+    document.body.className='fondo'+id;
+    document.getElementById("color").value=id;
+}
+
 // Funcion para truncar un valor asignado por parametro de entrada
 function toTrunc(value,n){
     var x=(value.toString()+".0").split(".");
