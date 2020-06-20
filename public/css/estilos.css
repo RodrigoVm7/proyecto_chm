@@ -23,7 +23,7 @@
      -moz-border-radius: 50%;
      -webkit-border-radius: 50%;
      border-radius: 50%;
-     background: #FAF4D0;
+     background: #FBFCEA;
      border: 2px solid #555; 
 }
 .circulo2 {
@@ -32,7 +32,7 @@
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
      border-radius: 50%;
-     background: #D0F5FA;
+     background: #EAF5FC;
      border: 2px solid #555; 
 }
 .circulo3 {
@@ -41,7 +41,7 @@
      -moz-border-radius: 50%;
      -webkit-border-radius: 50%;
      border-radius: 50%;
-     background: #AFE7C8;
+     background: #EBFCEA;
      border: 2px solid #555; 
 }
 .circulo4 {
@@ -50,21 +50,21 @@
      -moz-border-radius: 50%;
      -webkit-border-radius: 50%;
      border-radius: 50%;
-     background: #F2D0FA;
+     background: #F9EAFC;
      border: 2px solid #555; 
 }
 .fondo0 {
      background-color: #f8fafc
 }
 .fondo1 {
-	background-color: #FAF4D0;
+	background-color: #FBFCEA;
 }
 .fondo2 {
-	background-color: #D0F5FA;
+	background-color: #EAF5FC;
 }
 .fondo3 {
-     background-color: #AFE7C8;
+     background-color: #EBFCEA;
 }
 .fondo4 {
-     background-color: #F2D0FA;
+     background-color: #F9EAFC;
 }
