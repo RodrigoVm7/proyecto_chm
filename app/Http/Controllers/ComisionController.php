@@ -10,9 +10,10 @@ class ComisionController extends Controller{
 
     /* Funcion que retorna a la pagina principal de la pestaña Comisiones, junto con los datos de las comisiones de la facultad del usuario*/
     public function index(Request $request){
+        $color=$request->user()->color;
         $request->user()->authorizeRoles(['Admin','Secretario']); 
     	$datos=Comision::where('facultad','=',auth()->user()->facultad)->paginate(5);
-    	return view('comision.index',compact('datos'));
+    	return view('comision.index',compact('datos','color'));
     }
 
     /* Funcion que retorna a la pagina que permite crear una nueva comision*/

@@ -57,7 +57,6 @@ Route::post('/guardarEvaluacion','EvaluacionController@store');
 Route::get('/evaluacion/actualizar/{rut_academico}','EvaluacionController@actualizar');
 Route::post('/evaluacion/update','EvaluacionController@update');
 Route::get('/evaluacion/ver/{rut_academico}','EvaluacionController@verEvaluacion');
-//Route::get('/evaluacion/ver/{rut_academico}','EvaluacionController@pruebaEvaluacion');
 
 Route::get('/reportes','ReportesController@index');
 Route::get('/generarPDF/{periodo}','ReportesController@generarPDF');
@@ -78,5 +77,8 @@ Route::get('/secretario/graficos','GraficosController@secretarioIndex');
 Route::post('/secretario/graficar','GraficosController@secretarioGraficar');
 
 Route::get('/graficoAcademico/{rut}','GraficosController@graficoAcademico');
+
+Route::get('/personalizarFondo','usersController@personalizar');
+Route::post('/cambiarColor','usersController@cambiarColor');
 
  

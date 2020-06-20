@@ -9,9 +9,10 @@ class PeriodoController extends Controller{
 
     /* Funcion que retorna a la pagina principal de la pestaña Periodo, junto con los datos de periodos que se puedan encontrar activos*/
     public function index(Request $request){
+        $color=$request->user()->color;
 		$request->user()->authorizeRoles(['Admin']);
         $activos=Periodo::where('estado','=','ACTIVO')->get();
-        return view('periodo.index',compact('activos'));
+        return view('periodo.index',compact('activos','color'));
     }
 
     /* Funcion que recibe los datos de la pagina principal de la pestaña Periodo. Recibe los datos del periodo a seleccionar y la accion a

@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->string('estado');
+            $table->integer('color')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

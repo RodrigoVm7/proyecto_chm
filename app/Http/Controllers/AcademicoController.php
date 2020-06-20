@@ -10,9 +10,10 @@ class AcademicoController extends Controller{
 
     /* Funcion que retorna a la pagina principal de la pestaña academicos, junto con los datos de academicos de la facultad del usuario*/
     public function index(Request $request){
+        $color=$request->user()->color;
         $request->user()->authorizeRoles(['Admin','Secretario']); 
         $datos=Academico::where('facultad','=',auth()->user()->facultad)->paginate(3);
-    	return view('academico.index',compact('datos'));
+    	return view('academico.index',compact('datos','color'));
     }
 
     /* Funcion que retorna a la pagina que permite crear un nuevo academico*/

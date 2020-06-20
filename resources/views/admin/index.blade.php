@@ -1,19 +1,8 @@
 @extends('layouts.app')
 
-<style>
-	.imagenUcm{
-		text-align: center;
-		opacity:0.4;
-		position: fixed;
-		bottom:100px;
-        right: 0;
-        left: 0;
-        margin-right: auto;
-        margin-left: auto;
-	}
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
 
-</style>
-
+<body class="fondo{{$color}}">
 @section('content')
 
 <div class="container" style="text-align:center;">
@@ -40,9 +29,11 @@
 <a href="{{ url('reportes') }}" class="btn btn-primary" >Reportes</a>
 <a href="{{ url('admin/usuarios') }}" class="btn btn-primary" >Usuarios</a>
 <a href="{{ url('admin/periodos') }}" class="btn btn-primary" >Periodos</a>
+<a href="{{ url('personalizarFondo') }}" class="btn btn-primary" >Personalizar Fondo</a>
 <br><br>
 
 <div class="imagenUcm"><img src="{{asset('images/UCM.png')}}" width="400" height="180"></div>
 
 </div>
 @endsection
+</body>

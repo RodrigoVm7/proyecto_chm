@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class FacultadController extends Controller{
 
-    /* Funcion que retorna a la pagina principal de la pestaña Facultad, junto con los datos de las Facultades existentes*/
+    /* Función que retorna a la pagina principal de la pestaña Facultad, junto con los datos de las Facultades existentes*/
     public function index(Request $request){
+        $color=$request->user()->color;
         $request->user()->authorizeRoles(['Admin']);
     	$datos=Facultad::paginate(3);
-    	return view('facultad.index',compact('datos'));
+    	return view('facultad.index',compact('datos','color'));
     }
 
     /* Funcion que retorna a la pagina que permite crear una nueva Facultad*/

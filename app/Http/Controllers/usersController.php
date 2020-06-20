@@ -14,11 +14,11 @@ use App\Mail\SendMail;
 class usersController extends Controller {
 
     public function index(Request $request){
-        
+        $color=$request->user()->color;
         if($request->user()){
             $tipo=$request->user()->permiso;
             if($tipo=='Admin'){
-                return view('admin.index');
+                return view('admin.index',compact('color'));
             }
             if ($tipo=='Secretario'){
                 return view('secretario.index');
@@ -26,17 +26,25 @@ class usersController extends Controller {
         }else{
             return view('welcome');
         }
+    }    
+
+    public function personalizar(Request $request){
+        $color=$request->user()->color;
+        return view('user.personalizarFondo',compact('color'));
     }
 
-        
-    
+    public function cambiarColor(Request $request){
+        User::where('email','=',$request->user()->email)->update(['color'=>$request->input('color')]);
+        return redirect('/personalizarFondo')->with('Mensaje','Color de fondo actualizado correctamente');
+    }
 
     /* Funcion que retorna a la pagina principal de la pestaña Usuarios en el menu de Administrador, junto con los datos de los usuarios
        existentes. */
     public function mostrar(Request $request){
+        $color=$request->user()->color;
         $request->user()->authorizeRoles(['Admin']);
     	$datos=User::paginate(3);
-    	return view('user.index',compact('datos'));
+    	return view('user.index',compact('datos','color'));
     }
 
     /* Funcion que retorna a la pagina que permite crear un nuevo usuario*/

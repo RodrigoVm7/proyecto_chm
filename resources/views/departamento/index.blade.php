@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
 @section('content')
 
 <div class="container">
@@ -63,3 +66,4 @@
 
 </div>
 @endsection
+</body>
