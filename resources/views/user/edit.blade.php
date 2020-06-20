@@ -69,6 +69,8 @@
 		{!! $errors->first('facultad','<div class="invalid-feedback">:message</div>') !!}
 	</div>
 
+	@if($rut_sesion_actual!=$user->rut)
+
 	<div class="form-group">
 		<label for="estado" class="control-label">{{'Estado'}}</label><br>
 		<select name="estado" id="estado" size="1" style="
@@ -92,6 +94,7 @@
 		</select>
 		{!! $errors->first('Estado','<div class="invalid-feedback">:message</div>') !!}
 	</div>
+	@endif
 
 	<input type="submit" class="btn btn-success" value="Modificar ✍">
 

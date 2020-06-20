@@ -101,9 +101,10 @@ class usersController extends Controller {
     /* Función que retorna a la página que permite editar la información de un usuario en particular*/
     public function edit(Request $request, $email){
         $request->user()->authorizeRoles(['Admin']);
+        $rut_sesion_actual=$request->user()->rut;
         $user=User::findOrFail($email);
         $facultades=facultad::all();
-        return view('user.edit',compact('user','facultades'));
+        return view('user.edit',compact('user','facultades','rut_sesion_actual'));
     }
 
     /* Función que recibe los datos del formulario para editar un usuario, para posteriormente ingresar a la base de datos la 
