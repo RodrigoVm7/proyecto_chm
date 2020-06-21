@@ -48,10 +48,11 @@ class GraficosController extends Controller{
 		$seleccionado->periodo="";
 		$seleccionado->facultad="";
 		$seleccionado->departamento="";
+		$color=$request->user()->color;
 		if($evaluaciones=="[]"){
-			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos'))->with('Mensaje','No hay datos para mostrar');
+			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos','color'))->with('Mensaje','No hay datos para mostrar');
 		}else{
-			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos'));
+			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos','color'));
 		}
 	}
 
@@ -59,6 +60,7 @@ class GraficosController extends Controller{
 	   el gráfico de acuerdo a los nuevos filtros.*/
 	public function graficar(Request $request){
 		$request->user()->authorizeRoles(['Admin']);
+		$color=$request->user()->color;
 		$seleccionado = new \stdClass;
 		
 		if($request->input('periodo')!="" && $request->input('facultad')=="" && $request->input('departamento')==""){	//Solo Periodo
@@ -128,18 +130,20 @@ class GraficosController extends Controller{
 		$departamentos=Departamento::all();
 		$academicos=Academico::where('facultad','=',auth()->user()->facultad)->paginate(5);
 		if($evaluaciones=="[]"){
-			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos'))->with('Mensaje','No hay datos para mostrar');
+			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos','color'))->with('Mensaje','No hay datos para mostrar');
 		}else{
-			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos'));
+			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos','color'));
 		}
 	}
 
 	/* Funcion que retorna a la vista con informacion detallada de un academico en particular. En dicha vista se presentan dos graficos, uno
-	   con el tiempo total destinado a cada actividad, y otro con las notas finales obtenidas por el academico*/
+	con el tiempo total destinado a cada actividad, y otro con las notas finales obtenidas por el academico*/
 	public function graficoAcademico(Request $request, $rut){
         $request->user()->authorizeRoles(['Admin','Secretario']); 
 		$evaluaciones=Evaluacion::where('rut_academico','=',$rut)->get();
-
+		$color=$request->user()->color;
+		$permiso=auth()->user()->permiso;
+		
 		if($evaluaciones!="[]"){
 			$datosGrafico = new \stdClass;
 			$datosGrafico->nombre = $evaluaciones[0]->nombre_academico." ".$evaluaciones[0]->apellido_academico;
@@ -170,8 +174,7 @@ class GraficosController extends Controller{
 			$periodos=Periodo::where('estado','=','INACTIVO')->get();
 			$seleccionado="";
 			$calificacionesFinales=Evaluacion::where('rut_academico','=',$rut)->select('año','nota_final')->get();
-			$permiso=auth()->user()->permiso;
-			return view('graficos.graficoUsuario',compact('datosGrafico','periodos','seleccionado','calificacionesFinales','permiso'));
+			return view('graficos.graficoUsuario',compact('datosGrafico','periodos','seleccionado','calificacionesFinales','permiso','color'));
 		}else{
 			if($permiso!='secretario'){
 				return redirect('admin/graficos')->with('Mensaje','No hay datos para el académico seleccionado');

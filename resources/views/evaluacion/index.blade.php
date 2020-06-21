@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
+
 @section('content')
 
 <script type="text/javascript" src="{!! asset('js/evaluar.js') !!}"></script>
@@ -158,5 +162,5 @@
 </div>
 </section>
 </div>
-
 @endsection
+</body>

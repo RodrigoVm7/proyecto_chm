@@ -21,7 +21,8 @@ class AcademicoController extends Controller{
         $request->user()->authorizeRoles(['Admin','Secretario']); 
         $facultad=auth()->user()->facultad;
         $departamentos=Departamento::where('facultad','=',$facultad)->get();
-    	return view('academico.create',compact('departamentos','facultad'));
+        $color=$request->user()->color;
+    	return view('academico.create',compact('departamentos','facultad','color'));
     }
 
     /* Funcion que recibe los datos del formulario para crear un nuevo academico, para posteriormente ingresarlo a la base de datos*/
@@ -59,7 +60,8 @@ class AcademicoController extends Controller{
     	$academico=Academico::findOrFail($rut);
         $departamentos=Departamento::where('facultad','=',auth()->user()->facultad)->get();
         $facultad=auth()->user()->facultad;
-    	return view('academico.edit',compact('academico','departamentos','facultad'));
+        $color=$request->user()->color;
+    	return view('academico.edit',compact('academico','departamentos','facultad','color'));
     }
 
     /* Funcion que recibe los datos del formulario para editar un academico, para posteriormente ingresar a la base de datos la 

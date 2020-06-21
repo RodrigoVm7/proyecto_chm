@@ -20,7 +20,8 @@ class DepartamentoController extends Controller{
     public function create(Request $request){
         $request->user()->authorizeRoles(['Admin']);
         $facultades=facultad::all();
-    	return view('departamento.create',compact('facultades'));
+        $color=$request->user()->color;
+    	return view('departamento.create',compact('facultades','color'));
     }
 
     /* Funcion que recibe los datos del formulario para crear un nuevo departamento, para posteriormente ingresarlo a la base de datos*/
@@ -42,7 +43,8 @@ class DepartamentoController extends Controller{
         $request->user()->authorizeRoles(['Admin']);
     	$departamento=Departamento::findOrFail($cod_departamento);
         $facultades=facultad::all();
-    	return view('departamento.edit',compact('departamento','facultades'));
+        $color=$request->user()->color;
+    	return view('departamento.edit',compact('departamento','facultades','color'));
     }
 
     /* Funcion que recibe los datos del formulario para editar un departamento, para posteriormente ingresar a la base de datos la 

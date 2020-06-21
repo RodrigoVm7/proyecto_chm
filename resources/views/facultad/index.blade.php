@@ -48,7 +48,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada facultad, junto con un boton que permite editar
 			 la facultad seleccionada-->
 		@foreach($datos as $facultad)
-		<tr>
+		<tr style="text-align:center;">
 			<td>{{ $facultad->nombre}}</td>
 			<td>{{ $facultad->decano}}</td>
 			<td>{{ $facultad->estado}}</td>

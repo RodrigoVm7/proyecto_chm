@@ -18,7 +18,8 @@ class FacultadController extends Controller{
     /* Funcion que retorna a la pagina que permite crear una nueva Facultad*/
     public function create(Request $request){
         $request->user()->authorizeRoles(['Admin']);
-    	return view('facultad.create');
+        $color=$request->user()->color;
+    	return view('facultad.create',compact('color'));
     }
 
     /* Funcion que recibe los datos del formulario para crear una nueva facultad, para posteriormente ingresarla a la base de datos*/
@@ -39,7 +40,8 @@ class FacultadController extends Controller{
     public function edit(Request $request,$cod_facultad){
         $request->user()->authorizeRoles(['Admin']);
     	$facultad=Facultad::findOrFail($cod_facultad);
-    	return view('facultad.edit',compact('facultad'));
+        $color=$request->user()->color;
+    	return view('facultad.edit',compact('facultad','color'));
     }
 
     /* Funcion que recibe los datos del formulario para editar una facultad, para posteriormente ingresar a la base de datos la 

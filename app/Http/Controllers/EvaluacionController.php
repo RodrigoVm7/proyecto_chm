@@ -15,7 +15,8 @@ class EvaluacionController extends Controller{
 
     /* Funcion que retorna a la pagina principal de la pestaña Evaluacion, junto con los datos de las comisiones y academicos 
        disponibles, junto con la facultad del usuario*/
-    public function index(){
+    public function index(Request $request){
+        $color=$request->user()->color;
         $datosPeriodo=Periodo::where('estado','=',"ACTIVO")->get();
         if($datosPeriodo=="[]"){
             return redirect('/index')->with('Mensaje','El proceso de evaluacion académica se encuentra cerrado');
@@ -31,7 +32,7 @@ class EvaluacionController extends Controller{
             if($comisiones=="[]"){
                 return view('evaluacion.index')->with('comisiones',$comisiones)->with('academicos',$academicos)->with('facultadUsuario',$facultadUsuario)->with('yaEvaluados',$yaEvaluados)->with('Mensaje','No Existen Comisiones Configuradas para esta Facultad');
             }else{
-                return view('evaluacion.index',compact('comisiones','academicos','facultadUsuario','yaEvaluados'));
+                return view('evaluacion.index',compact('comisiones','academicos','facultadUsuario','yaEvaluados','color'));
             }
         }
     }
@@ -41,7 +42,8 @@ class EvaluacionController extends Controller{
         $datosAcademico=Academico::where('rut','=',$request->rutAcademico)->first();
         $datosComision=Comision::where('id_comision','=',$request->comision)->first();
         $periodo=Periodo::where('estado','=','ACTIVO')->first();
-        return view('evaluacion.create',compact('datosAcademico','datosComision','periodo'));   
+        $color=$request->user()->color;
+        return view('evaluacion.create',compact('datosAcademico','datosComision','periodo','color'));
     }
 
     /* Funcion que recibe los datos del formulario para crear una nueva evaluacion, para posteriormente ingresarla a la base de datos*/
@@ -174,14 +176,16 @@ class EvaluacionController extends Controller{
         $evaluacion->nota_final=$request->input('nota');
         $evaluacion->comentarios=$request->input('comentarios');
         $evaluacion->save();
-        return view('evaluacion.evaluacionTerminada')->with('data',$evaluacion)->with('Mensaje','Evaluación Realizada Correctamente');
+        $color=$request->user()->color;
+        return view('evaluacion.evaluacionTerminada')->with('data',$evaluacion)->with('color',$color)->with('Mensaje','Evaluación Realizada Correctamente');
     }
 
     /* Funcion que retorna a la pagina que permite editar una evaluacion anteriormente realizada*/
-    public function actualizar($rut_academico){
+    public function actualizar(Request $request, $rut_academico){
         $periodoActual=Periodo::where('estado','=',"ACTIVO")->first();
         $data=Evaluacion::where('rut_academico','=',$rut_academico)->where('año','=',$periodoActual->año)->first();
-        return view('evaluacion.edit',compact('data'));
+        $color=$request->user()->color;
+        return view('evaluacion.edit',compact('data','color'));
     }
 
     public function verEvaluacion($rut_academico){
@@ -340,6 +344,7 @@ class EvaluacionController extends Controller{
         $evaluacion->nota_final=$request->input('nota');
         $evaluacion->comentarios=$request->input('comentarios');
         $evaluacion->save();
-        return view('evaluacion.evaluacionTerminada')->with('data',$evaluacion)->with('Mensaje','Evaluación Editada Correctamente');
+        $color=$request->user()->color;
+        return view('evaluacion.evaluacionTerminada')->with('data',$evaluacion)->with('color',$color)->with('Mensaje','Evaluación Editada Correctamente');
     }
 }

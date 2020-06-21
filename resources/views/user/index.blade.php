@@ -52,7 +52,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada usuario, junto con un boton que permite
 			 editar su información-->
 		@foreach($datos as $user)
-		<tr>
+		<tr style="text-align:center;">
 			<td>{{ $user->nombre}}</td>
 			<td>{{ $user->apellidos}}</td>
 			<td>{{ $user->permiso}}</td>

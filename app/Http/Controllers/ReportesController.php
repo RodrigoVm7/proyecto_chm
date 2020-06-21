@@ -73,12 +73,14 @@ class ReportesController extends Controller{
     public function habilitarSubida(Request $request){
         $periodos=Periodo::where('estado','=','INACTIVO')->paginate(5);
         $subida=1;
-        return view('reportes.index',compact('periodos','subida'));
+        $color=$request->user()->color;
+        return view('reportes.index',compact('periodos','subida','color'));
     }
 
     /* Función que retorna a la página que permite subir un archivo con firmas en un periodo determinado*/
-    public function subirFirma($periodo){
-        return view('reportes.firmas',compact('periodo'));
+    public function subirFirma(Request $request, $periodo){
+        $color=$request->user()->color;
+        return view('reportes.firmas',compact('periodo','color'));
     }
 
     /* Función que recibe la información del formulario para subir un archivo con firmas, para posteriormente ingresarla a la base de datos*/
@@ -121,10 +123,7 @@ class ReportesController extends Controller{
         }
     }
        
-    
-
-    /* Función que retorna a la página principal de la pestaña Reportes, pero esta vez con un boton habilitado que permite subir un archivo
-       a cada periodo visualizado. */
+    /* Función que retorna a la página principal de la pestaña Reportes, pero esta vez con un boton habilitado que permite subir un archivo a cada periodo visualizado. */
     public function habilitarSubidaBuscado($periodo){
         $subida=1;
         $datos=Periodo::where('año','=',$periodo)->first();

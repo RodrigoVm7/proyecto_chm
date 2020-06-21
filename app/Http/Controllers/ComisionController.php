@@ -20,7 +20,8 @@ class ComisionController extends Controller{
     public function create(Request $request){
         $request->user()->authorizeRoles(['Admin','Secretario']); 
         $facultades=facultad::all();
-    	return view('comision.create',compact('facultades'));
+        $color=$request->user()->color;
+    	return view('comision.create',compact('facultades','color'));
     }
 
     /* Funcion que recibe los datos del formulario para crear una nueva comision, para posteriormente ingresarla a la base de datos*/
@@ -60,7 +61,8 @@ class ComisionController extends Controller{
         $request->user()->authorizeRoles(['Admin','Secretario']); 
     	$comision=Comision::findOrFail($id_comision);
         $facultades=facultad::all();
-    	return view('comision.edit',compact('comision','facultades'));
+        $color=$request->user()->color;
+    	return view('comision.edit',compact('comision','facultades','color'));
     }
 
     /* Funcion que recibe los datos del formulario para editar una comision, para posteriormente ingresar a la base de datos la 

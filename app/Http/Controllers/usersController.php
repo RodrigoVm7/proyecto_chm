@@ -51,7 +51,8 @@ class usersController extends Controller {
     public function create(Request $request){
         $request->user()->authorizeRoles(['Admin']);
         $facultades=facultad::all();
-    	return view('user.create',compact('facultades'));
+        $color=$request->user()->color;
+    	return view('user.create',compact('facultades','color'));
     }
 
     /* Funcion que recibe los datos del formulario para crear un nuevo usuario, para posteriormente ingresarlo a la base de datos. Ademas, 
@@ -112,7 +113,8 @@ class usersController extends Controller {
         $rut_sesion_actual=$request->user()->rut;
         $user=User::findOrFail($email);
         $facultades=facultad::all();
-        return view('user.edit',compact('user','facultades','rut_sesion_actual'));
+        $color=$request->user()->color;
+        return view('user.edit',compact('user','facultades','rut_sesion_actual','color'));
     }
 
     /* Función que recibe los datos del formulario para editar un usuario, para posteriormente ingresar a la base de datos la 
@@ -129,7 +131,8 @@ class usersController extends Controller {
     public function reenviarContraseña(Request $request){
         $request->user()->authorizeRoles(['Admin']);
         $datos=User::all();
-        return view('user.indexReenviarContraseña',compact('datos'));
+        $color=$request->user()->color;
+        return view('user.indexReenviarContraseña',compact('datos','color'));
     }
 
     /* Función que se encarga de generar una nueva contraseña para un usuario, la cuál es actualizada en la base de datos y a su vez es

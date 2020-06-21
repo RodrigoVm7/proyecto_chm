@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
 
 <body class="fondo{{$color}}">
+
 @section('content')
 
 <div class="container">
@@ -62,7 +63,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla cada periodo junto con botones que permiten generar pdf, excel y ver
 			 firmas, junto con el boton que permite subir archivos (cuando se habilite la opción)-->
 		@foreach($periodos as $periodo)
-		<tr>
+		<tr style="text-align:center;">
 			<td>{{ $periodo->año}}</td>
 			<td>
 				<a class="btn btn-light" href="{{ url('/generarPDF/'.$periodo->año) }}">📄

@@ -48,7 +48,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada departamento, junto con un boton que permite
 			 editar los datos del departamento seleccionado-->
 		@foreach($datos as $departamento)
-		<tr>
+		<tr style="text-align:center;">
 			<td>{{ $departamento->nombre}}</td>
 			<td>{{ $departamento->facultad}}</td>
 			<td>{{ $departamento->estado}}</td>

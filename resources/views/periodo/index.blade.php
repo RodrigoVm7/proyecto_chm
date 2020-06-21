@@ -32,7 +32,7 @@
 			</tr>
 		</thread>
 		<tbody>
-			<tr>
+			<tr style="text-align:center;">
 				<td>
 					<select id="year" name="year" required>
 						<option value="0">Año</option>
@@ -56,7 +56,7 @@
 		</thread>
 		<tbody>
 			@foreach($activos as $activo)
-			<tr>
+			<tr style="text-align:center;">
 				<td>{{ $activo->año}}</td>
 			</tr>
 			@endforeach

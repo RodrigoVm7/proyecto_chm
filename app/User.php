@@ -15,7 +15,7 @@ class User extends Authenticatable
     protected $primaryKey='email';
 
     protected $fillable = [
-        'email', 'permiso', 'facultad', 'rut', 'password', 'nombre', 'apellidos', 'estado'
+        'email', 'permiso', 'facultad', 'rut', 'password', 'nombre', 'apellidos', 'estado','color'
     ];
 
     public $incrementing = false;
