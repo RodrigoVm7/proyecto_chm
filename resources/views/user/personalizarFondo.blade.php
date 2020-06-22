@@ -29,7 +29,7 @@
 	<input type="number" name="color" id="color" value="{{$color}}" hidden>
 	<br>
 
-	<input type="submit" class="btn btn-success" value="Confirmar">
+	<input type="submit" class="btn btn-success" value="💾 Guardar">
 	<a href="{{ url('index') }}" class="btn btn-success" >⏎ Regresar</a>
 
 </div>
