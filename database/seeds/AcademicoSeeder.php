@@ -152,6 +152,92 @@ class AcademicoSeeder extends Seeder
             'tipo_planta'=>'SI',
             'estado'=>'ACTIVO'
         ]);
+
+        // Academicos facultad de Medicina
+
+        DB::table('Academico')->insert([
+            'rut'=>'14495131',
+            'nombre'=>'Isabella',
+            'apellido'=>'González',
+            'titulo'=>'Medico Cirujano',
+            'grado_academico'=>'Licenciada en Medicina',
+            'departamento'=>'Departamento de Neurociencia',
+            'facultad'=>'Facultad de Medicina',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'18545645',
+            'nombre'=>'Ricardo',
+            'apellido'=>'Fernandez',
+            'titulo'=>'Enfermero',
+            'grado_academico'=>'Licenciado en Enfermería',
+            'departamento'=>'Departamento de Enfermería',
+            'facultad'=>'Facultad de Medicina',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'17426035',
+            'nombre'=>'Matias',
+            'apellido'=>'Burgos',
+            'titulo'=>'Kinesiólogo',
+            'grado_academico'=>'Licenciado en Kinesiología',
+            'departamento'=>'Departamento de Kinesiología',
+            'facultad'=>'Facultad de Medicina',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19863204',
+            'nombre'=>'Nicole',
+            'apellido'=>'Oyarce',
+            'titulo'=>'Fonoaudióloga',
+            'grado_academico'=>'Licenciada en Fonoaudiología',
+            'departamento'=>'Departamento de Fonoaudiología',
+            'facultad'=>'Facultad de Medicina',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'16254900',
+            'nombre'=>'Juan',
+            'apellido'=>'Cifuentes',
+            'titulo'=>'Profesional Especialista en Oftalmología',
+            'grado_academico'=>'Título de Profesional Especialista en Oftalmología',
+            'departamento'=>'Departamento de Oftalmología',
+            'facultad'=>'Facultad de Medicina',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'17598777',
+            'nombre'=>'Marisol',
+            'apellido'=>'Castro',
+            'titulo'=>'Terapeuta Ocupacional',
+            'grado_academico'=>'Licenciado/a en Ciencias de la Ocupación Humana',
+            'departamento'=>'Departamento de Terapia Ocupacional y Ciencia de la Ocupación',
+            'facultad'=>'Facultad de Medicina',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
 //************************************************** */
 
         

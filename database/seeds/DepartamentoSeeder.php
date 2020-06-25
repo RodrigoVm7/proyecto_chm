@@ -65,5 +65,45 @@ class DepartamentoSeeder extends Seeder
             'estado'=>'ACTIVO',
         ]);
 
+        //// Departamentos facultad de Medicina
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Neurociencia',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Enfermería',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Kinesiología',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Fonoaudiología',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Oftalmología',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Terapia Ocupacional y Ciencia de la Ocupación',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+
+
     }
 }
