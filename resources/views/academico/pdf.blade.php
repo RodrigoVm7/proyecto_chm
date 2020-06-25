@@ -205,7 +205,8 @@
 
 <br>
 <h4><center>FIRMA COMISIÓN</center></h4>
-<div class="w3-container">
+<center><img src="http://localhost:8888/chm/public/storage/{{$firmaComision}}" width="30%" height="30%"></center>
+<!--<div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 		<tr hidden=""></tr>
 		<tr>
@@ -232,8 +233,8 @@
 			<th style="visibility:hidden;"><center>Nombre y Firmaaaaaa</center></th>
 			<th style="width: 50%;"><center>Nombre y Firma Ministro de Fe</center></th>
 		</tr>
-	</table>
-	<br><h8>FECHA:</h8>
+	</table>-->
+	<br><h8>FECHA: {{$datos->updated_at->format('d-m-yy')}}</h8>
 </div>
 </body>
 </html>

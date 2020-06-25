@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
+
 @section('content')
 
 <div class="container">
@@ -16,9 +20,10 @@
 @endif
 
 <!-- Visualizacion en pantalla del archivo subido al sistema-->
-	<img src="http://localhost:8888/sea/public/storage/{{$data->archivo}}">
-
+	<img src="http://localhost:8888/chm/public/storage/{{$data->archivo}}">
+	<br>
 	<a class="btn btn-primary" href="{{ url('reportes') }}">Regresar ←</a>
 
 </div>
 @endsection
+</body>

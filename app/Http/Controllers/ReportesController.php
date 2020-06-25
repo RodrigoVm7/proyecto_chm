@@ -102,12 +102,13 @@ class ReportesController extends Controller{
     }
 
     /* Función que retorna a la página que permite visualizar el archivo subido a la pestaña de firmas de un periodo determinado*/
-    public function verFirma($periodo){
+    public function verFirma(Request $request, $periodo){
+        $color=$request->user()->color;
         $data=Firmas::where('periodo','=',$periodo)->where('facultad','=',auth()->user()->facultad)->first();
         if($data==""){
             return redirect('reportes')->with('Mensaje','No hay archivos disponibles');
         }else{
-            return view('reportes.verFirma',compact('data'));
+            return view('reportes.verFirma',compact('data', 'color'));
         }
     }
 

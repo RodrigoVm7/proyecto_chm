@@ -10,6 +10,7 @@ use App\Periodo;
 use App\Comision;
 use App\Academico;
 use App\Departamento;
+use App\Firmas;
 
 class EvaluacionController extends Controller{
 
@@ -188,7 +189,7 @@ class EvaluacionController extends Controller{
         return view('evaluacion.edit',compact('data','color'));
     }
 
-    public function verEvaluacion($rut_academico){
+    public function verEvaluacion(Request $request, $rut_academico){
         $academico=Academico::where('rut','=',$rut_academico)->first();
         $datos=Evaluacion::where('rut_academico','=',$rut_academico)->first();
         $periodoActual=Periodo::where('estado','=','ACTIVO')->select('año')->first();
@@ -198,9 +199,13 @@ class EvaluacionController extends Controller{
         }else{
             $notaAnterior=$notaAnterior->nota_final;
         }
-        $pdf=PDF::loadView('academico.pdf',compact('academico','datos','notaAnterior'));
+        $firmaComision=Firmas::where('periodo','=',$periodoActual->año)->where('facultad','=',$request->user()->facultad)->first();
+        $firmaComision=$firmaComision->archivo;
+
+        $pdf=PDF::loadView('academico.pdf',compact('academico','datos','notaAnterior','firmaComision'));
         return $pdf->stream('reporte-'.$rut_academico.'.pdf');
         //return $pdf->download('reporte-'.$rut_academico.'.pdf');
+        //return response()->json($datos->created_at->format('yy-m-d'));
     }
 
     public function pruebaEvaluacion($rut_academico){
