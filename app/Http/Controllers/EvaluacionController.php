@@ -200,12 +200,13 @@ class EvaluacionController extends Controller{
             $notaAnterior=$notaAnterior->nota_final;
         }
         $firmaComision=Firmas::where('periodo','=',$periodoActual->año)->where('facultad','=',$request->user()->facultad)->first();
-        $firmaComision=$firmaComision->archivo;
+        if($firmaComision!=""){
+            $firmaComision=$firmaComision->archivo;
+        }
 
         $pdf=PDF::loadView('academico.pdf',compact('academico','datos','notaAnterior','firmaComision'));
         return $pdf->stream('reporte-'.$rut_academico.'.pdf');
         //return $pdf->download('reporte-'.$rut_academico.'.pdf');
-        //return response()->json($datos->created_at->format('yy-m-d'));
     }
 
     public function pruebaEvaluacion($rut_academico){

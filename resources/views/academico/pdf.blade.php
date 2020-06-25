@@ -205,7 +205,9 @@
 
 <br>
 <h4><center>FIRMA COMISIÓN</center></h4>
+@if($firmaComision!="")
 <center><img src="http://localhost:8888/chm/public/storage/{{$firmaComision}}" width="30%" height="30%"></center>
+@endif
 <!--<div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 		<tr hidden=""></tr>
