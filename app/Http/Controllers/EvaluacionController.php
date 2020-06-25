@@ -48,6 +48,7 @@ class EvaluacionController extends Controller{
 
     /* Funcion que recibe los datos del formulario para crear una nueva evaluacion, para posteriormente ingresarla a la base de datos*/
     public function store(Request $request){
+        $color=$request->user()->color;
         //Validación de ponderaciones. Se busca verificar que las ponderacinoes ingresadas sumen 100%.
         $t1=intval($request->input('tiempoAsignado1'));
         if($t1==""){
@@ -72,7 +73,7 @@ class EvaluacionController extends Controller{
         if($t1+$t2+$t3+$t4+$t5!=100){
             $datosAcademico=Academico::where('rut','=',$request->input('rutAcademico'))->first();
             $datosComision=Comision::where('id_comision','=',$request->input('id_comision'))->first();
-            return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('Mensaje','Suma de ponderaciones incorrecta');
+            return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('color',$color)->with('Mensaje','Suma de ponderaciones incorrecta');
         }
 
         //Validación de notas. Se busca verificar que si se ingresó una ponderacion, debe incluirse sólo una nota en dicha actividad.
@@ -80,27 +81,27 @@ class EvaluacionController extends Controller{
         $datosComision=Comision::where('id_comision','=',$request->input('id_comision'))->first();
         if($t1!=0){
             if($request->input('1e')=="" && $request->input('1mb')=="" && $request->input('1b')=="" && $request->input('1r')=="" && $request->input('1d')==""){
-                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t2!=0){
             if($request->input('2e')=="" && $request->input('2mb')=="" && $request->input('2b')=="" && $request->input('2r')=="" && $request->input('2d')==""){
-                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t3!=0){
             if($request->input('3e')=="" && $request->input('3mb')=="" && $request->input('3b')=="" && $request->input('3r')=="" && $request->input('3d')==""){
-                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t4!=0){
             if($request->input('4e')=="" && $request->input('4mb')=="" && $request->input('4b')=="" && $request->input('4r')=="" && $request->input('4d')==""){
-                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t5!=0){
             if($request->input('5e')=="" && $request->input('5mb')=="" && $request->input('5b')=="" && $request->input('5r')=="" && $request->input('5d')==""){
-                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.create')->with('datosAcademico',$datosAcademico)->with('datosComision',$datosComision)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         
@@ -176,7 +177,6 @@ class EvaluacionController extends Controller{
         $evaluacion->nota_final=$request->input('nota');
         $evaluacion->comentarios=$request->input('comentarios');
         $evaluacion->save();
-        $color=$request->user()->color;
         return view('evaluacion.evaluacionTerminada')->with('data',$evaluacion)->with('color',$color)->with('Mensaje','Evaluación Realizada Correctamente');
     }
 
@@ -219,6 +219,7 @@ class EvaluacionController extends Controller{
     /* Funcion que recibe los datos del formulario para editar una evaluacion, para posteriormente ingresar a la base de datos la 
        información actualizada*/
     public function update(Request $request){
+        $color=$request->user()->color;
         //Validacion de ponderaciones. Se busca verificar que las ponderacinoes ingresadas sumen 100%.
         $t1=intval($request->input('tiempoAsignado1'));
         if($t1==""){
@@ -242,34 +243,34 @@ class EvaluacionController extends Controller{
         }
         if($t1+$t2+$t3+$t4+$t5!=100){
             $data=Evaluacion::where('id','=',$request->input('id_evaluacion'))->first();
-            return view('evaluacion.edit')->with('data',$data)->with('Mensaje','Suma de ponderaciones incorrecta');
+            return view('evaluacion.edit')->with('data',$data)->with('color',$color)->with('Mensaje','Suma de ponderaciones incorrecta');
         }
         
         //Validacion de notas. Se busca verificar que si se ingresó una ponderacion, debe incluirse sólo UNA nota en dicha actividad.
         $data=Evaluacion::where('id','=',$request->input('id_evaluacion'))->first();
         if($t1!=0){
             if($request->input('1e')=="" && $request->input('1mb')=="" && $request->input('1b')=="" && $request->input('1r')=="" && $request->input('1d')==""){
-                return view('evaluacion.edit')->with('data',$data)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.edit')->with('data',$data)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t2!=0){
             if($request->input('2e')=="" && $request->input('2mb')=="" && $request->input('2b')=="" && $request->input('2r')=="" && $request->input('2d')==""){
-                return view('evaluacion.edit')->with('data',$data)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.edit')->with('data',$data)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t3!=0){
             if($request->input('3e')=="" && $request->input('3mb')=="" && $request->input('3b')=="" && $request->input('3r')=="" && $request->input('3d')==""){
-                return view('evaluacion.edit')->with('data',$data)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.edit')->with('data',$data)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t4!=0){
             if($request->input('4e')=="" && $request->input('4mb')=="" && $request->input('4b')=="" && $request->input('4r')=="" && $request->input('4d')==""){
-                return view('evaluacion.edit')->with('data',$data)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.edit')->with('data',$data)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
         if($t5!=0){
             if($request->input('5e')=="" && $request->input('5mb')=="" && $request->input('5b')=="" && $request->input('5r')=="" && $request->input('5d')==""){
-                return view('evaluacion.edit')->with('data',$data)->with('Mensaje','Faltan Datos');
+                return view('evaluacion.edit')->with('data',$data)->with('color',$color)->with('Mensaje','Faltan Datos');
             }
         }
 
@@ -344,7 +345,6 @@ class EvaluacionController extends Controller{
         $evaluacion->nota_final=$request->input('nota');
         $evaluacion->comentarios=$request->input('comentarios');
         $evaluacion->save();
-        $color=$request->user()->color;
         return view('evaluacion.evaluacionTerminada')->with('data',$evaluacion)->with('color',$color)->with('Mensaje','Evaluación Editada Correctamente');
     }
 }
