@@ -11,6 +11,8 @@ class DepartamentoSeeder extends Seeder
      */
     public function run()
     {
+
+    //Facultad de Ingenieria****************************************************************
         DB::table('departamento')->insert([
             'nombre'=>'Departamento de Computacion e Industrias',
             'facultad'=>'Facultad de Ciencias de la Ingenieria',
@@ -22,19 +24,8 @@ class DepartamentoSeeder extends Seeder
             'facultad'=>'Facultad de Ciencias de la Ingenieria',
             'estado'=>'ACTIVO',
         ]);
-
-        DB::table('departamento')->insert([
-            'nombre'=>'Departamento de Ciencias Clinicas',
-            'facultad'=>'Facultad de Medicina',
-            'estado'=>'ACTIVO',
-        ]);
-
-        DB::table('departamento')->insert([
-            'nombre'=>'Departamento de Ciencias Pre-Clinicas',
-            'facultad'=>'Facultad de Medicina',
-            'estado'=>'ACTIVO',
-        ]);
-
+        
+    //Facultad de Ciencias de la educacion****************************************************************
         DB::table('departamento')->insert([
             'nombre'=>'Departamento de Formacion Inicial Escolar',
             'facultad'=>'Facultad de Ciencias de la Educacion',
@@ -47,12 +38,14 @@ class DepartamentoSeeder extends Seeder
             'estado'=>'ACTIVO',
         ]);
 
+    //Facultad de Ciencias basicas****************************************************************
         DB::table('departamento')->insert([
             'nombre'=>'Departamento de Ciencias',
             'facultad'=>'Facultad de Ciencias Basicas',
             'estado'=>'ACTIVO',
         ]);
 
+    //Facultad de Ciencias Sociales****************************************************************
         DB::table('departamento')->insert([
             'nombre'=>'Departamento de Ciencias Sociales',
             'facultad'=>'Facultad de Ciencias Sociales y Economicas',
@@ -65,7 +58,18 @@ class DepartamentoSeeder extends Seeder
             'estado'=>'ACTIVO',
         ]);
 
-        //// Departamentos facultad de Medicina
+        //Facultad de Medicina****************************************************************    
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Ciencias Clinicas',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
+
+        DB::table('departamento')->insert([
+            'nombre'=>'Departamento de Ciencias Pre-Clinicas',
+            'facultad'=>'Facultad de Medicina',
+            'estado'=>'ACTIVO',
+        ]);
 
         DB::table('departamento')->insert([
             'nombre'=>'Departamento de Neurociencia',

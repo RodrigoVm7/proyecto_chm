@@ -11,6 +11,9 @@ class AcademicoSeeder extends Seeder
      */
     public function run()
     {
+
+        //Academicos Fcaultad de Ingenieria****************************************************************** 
+        
         DB::table('Academico')->insert([
             'rut'=>'19043792',
             'nombre'=>'Diego',
@@ -81,7 +84,7 @@ class AcademicoSeeder extends Seeder
             'estado'=>'ACTIVO'
         ]);
 
-        // DECANOS ************************************
+        // DECANOS ************************************************************************************************
 
         DB::table('Academico')->insert([
             'rut'=>'19347258',
@@ -153,7 +156,7 @@ class AcademicoSeeder extends Seeder
             'estado'=>'ACTIVO'
         ]);
 
-        // Academicos facultad de Medicina
+        // Academicos facultad de Medicina***********************************************************
 
         DB::table('Academico')->insert([
             'rut'=>'14495131',
@@ -177,7 +180,7 @@ class AcademicoSeeder extends Seeder
             'grado_academico'=>'Licenciado en Enfermería',
             'departamento'=>'Departamento de Enfermería',
             'facultad'=>'Facultad de Medicina',
-            'categoria'=>'Titular',
+            'categoria'=>'Adjunto',
             'horas_contrato'=>'42',
             'tipo_planta'=>'SI',
             'estado'=>'ACTIVO'
@@ -191,7 +194,7 @@ class AcademicoSeeder extends Seeder
             'grado_academico'=>'Licenciado en Kinesiología',
             'departamento'=>'Departamento de Kinesiología',
             'facultad'=>'Facultad de Medicina',
-            'categoria'=>'Titular',
+            'categoria'=>'Auxiliar',
             'horas_contrato'=>'42',
             'tipo_planta'=>'SI',
             'estado'=>'ACTIVO'
@@ -219,7 +222,7 @@ class AcademicoSeeder extends Seeder
             'grado_academico'=>'Título de Profesional Especialista en Oftalmología',
             'departamento'=>'Departamento de Oftalmología',
             'facultad'=>'Facultad de Medicina',
-            'categoria'=>'Titular',
+            'categoria'=>'Instructor',
             'horas_contrato'=>'42',
             'tipo_planta'=>'SI',
             'estado'=>'ACTIVO'
@@ -238,6 +241,81 @@ class AcademicoSeeder extends Seeder
             'tipo_planta'=>'SI',
             'estado'=>'ACTIVO'
         ]);
+
+        //Academicos Ciencias Basicas
+
+        DB::table('Academico')->insert([
+            'rut'=>'19389093',
+            'nombre'=>'Matias',
+            'apellido'=>'Suazo',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Magister en Ciencias Matematicas',
+            'departamento'=>'Departamento de Ciencias',
+            'facultad'=>'Facultad de Ciencias Basicas',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19390672',
+            'nombre'=>'Francisco',
+            'apellido'=>'Acevedo',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Licenciado en Ciencias Matematicas',
+            'departamento'=>'Departamento de Ciencias',
+            'facultad'=>'Facultad de Ciencias Basicas',
+            'categoria'=>'Adjunto',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19473448',
+            'nombre'=>'Alvaro',
+            'apellido'=>'Torres',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Licenciado en Ciencias Matematicas',
+            'departamento'=>'Departamento de Ciencias',
+            'facultad'=>'Facultad de Ciencias Basicas',
+            'categoria'=>'Auxiliar',
+            'horas_contrato'=>'30',
+            'tipo_planta'=>'NO',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19473735',
+            'nombre'=>'Bernardo',
+            'apellido'=>'Ojeda',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Licenciado en Ciencias Matematicas',
+            'departamento'=>'Departamento de Ciencias',
+            'facultad'=>'Facultad de Ciencias Basicas',
+            'categoria'=>'Instructor',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        
+        DB::table('Academico')->insert([
+            'rut'=>'19541641',
+            'nombre'=>'Cristian',
+            'apellido'=>'Montes',
+            'titulo'=>'Profesor de Ciencias',
+            'grado_academico'=>'Licenciado en Ciencias Matematicas',
+            'departamento'=>'Departamento de Ciencias',
+            'facultad'=>'Facultad de Ciencias Basicas',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        
 //************************************************** */
 
         
