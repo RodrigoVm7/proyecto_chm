@@ -47,8 +47,16 @@ class ComisionSeeder extends Seeder
 
         ]);
 
-       
-
+        DB::table('comision')->insert([
+            'año'=>'2019',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'rut_academico'=>'112348567',
+            'decano'=>'Rodrigo Vargas',
+            'miembro1'=>'Soledad Villegas',
+            'miembro2'=>'Armando Barreda',
+            'fecha_pie'=>'2019-05-06',
+            'estado'=>'ACTIVO',
+        ]);
         
     }
 }
