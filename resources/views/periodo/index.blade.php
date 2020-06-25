@@ -36,7 +36,7 @@
 				<td>
 					<select id="year" name="year" required>
 						<option value="0">Año</option>
-						<?php  for($i=2019;$i<=2025;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+						<?php  for($i=($año-1);$i<=($año+4);$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
 					</select>
 				</td>
 				<td><input type="submit" class="btn btn-primary" name="accion" value="Iniciar Periodo"></td>

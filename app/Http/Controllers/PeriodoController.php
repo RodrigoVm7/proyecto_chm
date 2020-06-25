@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Periodo;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PeriodoController extends Controller{
 
@@ -12,7 +13,9 @@ class PeriodoController extends Controller{
         $color=$request->user()->color;
 		$request->user()->authorizeRoles(['Admin']);
         $activos=Periodo::where('estado','=','ACTIVO')->get();
-        return view('periodo.index',compact('activos','color'));
+        $fecha = Carbon::now();
+        $año=$fecha->format('Y');
+        return view('periodo.index',compact('año','activos','color'));
     }
 
     /* Funcion que recibe los datos de la pagina principal de la pestaña Periodo. Recibe los datos del periodo a seleccionar y la accion a
