@@ -242,7 +242,7 @@ class AcademicoSeeder extends Seeder
             'estado'=>'ACTIVO'
         ]);
 
-        //Academicos Ciencias Basicas
+        //Academicos Ciencias Basicas********************************************************
 
         DB::table('Academico')->insert([
             'rut'=>'19389093',
@@ -315,6 +315,148 @@ class AcademicoSeeder extends Seeder
             'estado'=>'ACTIVO'
         ]);
 
+        //Academicos Ciencias de la Educacion***************************************
+
+        DB::table('Academico')->insert([
+            'rut'=>'19569280',
+            'nombre'=>'Maria',
+            'apellido'=>'Sepulveda',
+            'titulo'=>'Profesor de Historia',
+            'grado_academico'=>'Licenciado en Ciencias Sociales',
+            'departamento'=>'Departamento de Formacion Inicial Escolar',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'categoria'=>'Auxiliar',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19574562',
+            'nombre'=>'Francisca',
+            'apellido'=>'Aravena',
+            'titulo'=>'Profesor de Lenguaje y Comunicacion',
+            'grado_academico'=>'Licenciado en Educacion',
+            'departamento'=>'Departamento de Formacion Inicial Escolar',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'categoria'=>'Instructor',
+            'horas_contrato'=>'40',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19603581',
+            'nombre'=>'Luis',
+            'apellido'=>'Fernandez',
+            'titulo'=>'Profesor de Lenguaje y Comunicacion',
+            'grado_academico'=>'Magister en Educacion',
+            'departamento'=>'Departamento de Lengua Castellana y Literatura',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+        DB::table('Academico')->insert([
+            'rut'=>'19696122',
+            'nombre'=>'Pablo',
+            'apellido'=>'Mendoza',
+            'titulo'=>'Profesor de Lenguaje y Comunicacion',
+            'grado_academico'=>'Doctor en Educacion',
+            'departamento'=>'Departamento de Lengua Castellana y Literatura',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'19796232',
+            'nombre'=>'Julia',
+            'apellido'=>'Gonzales',
+            'titulo'=>'Profesor de Lenguaje y Comunicacion',
+            'grado_academico'=>'Licenciado en Educacion',
+            'departamento'=>'Departamento de Lengua Castellana y Literatura',
+            'facultad'=>'Facultad de Ciencias de la Educacion',
+            'categoria'=>'Adjunto',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        //Academicos Ciencias Sociales y economicas***************************************
+
+        DB::table('Academico')->insert([
+            'rut'=>'13488154',
+            'nombre'=>'Antonio',
+            'apellido'=>'Reyes',
+            'titulo'=>'Profesor de Ciencias Sociales',
+            'grado_academico'=>'Licenciado en Ciencias Sociales',
+            'departamento'=>'Departamento de Ciencias Sociales',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'14588154',
+            'nombre'=>'Franco',
+            'apellido'=>'Bravo',
+            'titulo'=>'Profesor de Historia',
+            'grado_academico'=>'Licenciado en Ciencias Sociales',
+            'departamento'=>'Departamento de Ciencias Sociales',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'categoria'=>'Auxiliar',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'15599154',
+            'nombre'=>'Juan',
+            'apellido'=>'Alvarado',
+            'titulo'=>'Contador Auditor',
+            'grado_academico'=>'Licenciado en contabilidad',
+            'departamento'=>'Departamento de Economia y Administracion',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'categoria'=>'Instructor',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'11889154',
+            'nombre'=>'Jose',
+            'apellido'=>'Mellado',
+            'titulo'=>'Ingeniero comercial',
+            'grado_academico'=>'Licenciado en Ciencias economicas',
+            'departamento'=>'Departamento de Economia y Administracion',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'categoria'=>'Adjunto',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
+
+        DB::table('Academico')->insert([
+            'rut'=>'12789154',
+            'nombre'=>'Javier',
+            'apellido'=>'Moya',
+            'titulo'=>'Contador Auditor',
+            'grado_academico'=>'Magister en Ciencias economicas',
+            'departamento'=>'Departamento de Economia y Administracion',
+            'facultad'=>'Facultad de Ciencias Sociales y Economicas',
+            'categoria'=>'Titular',
+            'horas_contrato'=>'42',
+            'tipo_planta'=>'SI',
+            'estado'=>'ACTIVO'
+        ]);
         
 //************************************************** */
 
