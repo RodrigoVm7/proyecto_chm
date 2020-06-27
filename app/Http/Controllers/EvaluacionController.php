@@ -26,7 +26,6 @@ class EvaluacionController extends Controller{
             $comisiones=Comision::where('facultad','=',$facultadUsuario)->where('estado','=','ACTIVO')->get();
 
             $evaluados=Evaluacion::where('año','=',$datosPeriodo[0]->año)->select('rut_academico')->get()->toArray();
-            //return response()->json($evaluados);
 
             $academicos=Academico::where('facultad','=',$facultadUsuario)->whereNotIn('rut',$evaluados)->paginate(5);
             $yaEvaluados=Academico::where('facultad','=',$facultadUsuario)->whereIn('rut',$evaluados)->paginate(5);

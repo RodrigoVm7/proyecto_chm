@@ -1,21 +1,22 @@
 @extends('layouts.app')
 
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+<script type="text/javascript" src="{!! asset('js/evaluar.js') !!}"></script>
 
 <body class="fondo{{$color}}">
 
 @section('content')
 
-<script type="text/javascript" src="{!! asset('js/evaluar.js') !!}"></script>
-
 <div class="container">
 
 <!-- Seccion que permite mostrar mensajes en pantalla-->
-@if(Session::has('Mensaje'))
-<div class="alert alert-danger" role="alert">
-{{ Session::get('Mensaje')}}
-</div>
+@if(!empty($Mensaje))
+  	<div class="alert alert-danger"> {{ $Mensaje }}</div>
 @endif
+
+@php
+    $c=count($comisiones)
+@endphp
 
 <h2>Evaluaciones</h2><br>
 
@@ -23,7 +24,7 @@
 <a href="{{ url('evaluacion') }}" class="btn btn-success" >↻ Refrescar</a>
 <a href="{{ url('index') }}" class="btn btn-success" >⏎ Regresar</a>
 <br><br>
-
+@if($c!=0)
 <a class="btn btn-primary" style="border:none;color:white;padding: 15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size: 16px;margin: 4px 2px;width: 100%;cursor: pointer;" onclick="Mostrar_ocultar('panel_evaluar');">Académicos no evaluados</a>
 
 <section id="panel_evaluar" style="display: none;">
@@ -44,9 +45,6 @@
 		<tr>
 			<td>Trabajar con:
 				<div class="form-group">
-					@if(!empty($Mensaje))
-  						<div class="alert alert-danger"> {{ $Mensaje }}</div>
-					@endif
    					<label class="radio-inline">
    						@php
         					$c=count($comisiones)
@@ -161,6 +159,7 @@
 		{{$yaEvaluados->links()}}
 </div>
 </section>
+@endif
 </div>
 @endsection
 </body>
