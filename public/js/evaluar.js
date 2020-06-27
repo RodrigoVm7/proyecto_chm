@@ -23,21 +23,26 @@ var ot5=0; // Variable nota actividad 5
 t5=parseFloat(t5); // Casteo a flotante variable tiempo asignado actividad 5
 ot5=parseFloat(ot5); // Casteo a flotante variable nota actividad 5
 
-
+//Funcion que permite aplicar el color seleccionado por el usuario para el fondo de todas las vistas
 function cambiar_fondo(id){
     document.body.className='fondo'+id;
     document.getElementById("color").value=id;
 }
 
+//Función que agrega un contador de caracteres al momento de ingresar un rut al crear un académico
 function contadorRut(obj){
     var largoStr = obj.value.length;
-    var cont= obj.value;
-
     if (largoStr > 7){
-        document.getElementById("contadorRut").innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+largoStr+'/9';
+        document.getElementById("contadorRut").innerHTML = '<span style="color: grey; float: right;">'+largoStr+'/9</span>';
     }else{
-        document.getElementById("contadorRut").innerHTML = '<span style="color: red;">Mínimo 8 caracteres</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+largoStr+'/9';
+        document.getElementById("contadorRut").innerHTML = '<span style="color: red;">Mínimo 8 caracteres</span><span style="color: grey; float: right;">'+largoStr+'/9</span>';
     }
+}
+
+//Funcion que agrega un contador de caracteres al momento de añadir un comentario sobre una evaluación académica.
+function contadorComentario(obj){
+    var largoStr = obj.value.length;
+    document.getElementById("contadorComentario").innerHTML = '<span style="color: grey;">Máximo 200 caracteres</span><span style="float: right; color: grey">'+largoStr+'/200</span>';
 }
 
 // Funcion para truncar un valor asignado por parametro de entrada

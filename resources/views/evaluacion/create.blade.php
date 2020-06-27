@@ -360,8 +360,10 @@
 	<div class="panel-body">
   		<ul class="list-group">
     		<!-- <li class="list-group-item"><input type="text" class="form-control {{$errors->has('comentarios')?'is-invalid':''}}" name="comentarios" id="comentarios" placeholder="Opcional" ></li> -->
-			<li class="list-group-item"><textarea id="comentarios" name="comentarios" rows="4" cols="50" class="form-control {{$errors->has('comentarios')?'is-invalid':''}}" placeholder="Opcional"></textarea></li>
-		  </ul>
+			<li class="list-group-item"><textarea id="comentarios" name="comentarios" rows="4" cols="50" class="form-control {{$errors->has('comentarios')?'is-invalid':''}}" placeholder="Opcional" maxlength="200" onkeyup="contadorComentario(this);"></textarea>
+				<p id="contadorComentario"><span style="color: grey;">Máximo 200 caracteres</span><span style="float: right; color: grey">0/200</span></p>
+			</li>
+		</ul>
   	</div>
   	</section>
   	<br>
