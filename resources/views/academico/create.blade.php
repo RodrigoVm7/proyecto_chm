@@ -2,6 +2,8 @@
 
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
 
+<script type="text/javascript" src="{!! asset('js/evaluar.js') !!}"></script>
+
 <body class="fondo{{$color}}">
 
 @section('content')
@@ -26,8 +28,9 @@
 
 	<div class="form-group">
 		<label for="rut" class="control-label">{{'Rut'}}</label>
-		<input type="text" class="form-control {{$errors->has('rut')?'is-invalid':''}}" name="rut" id="rut" placeholder="Rut">
+		<input type="text" minlength="8" maxlength="9" class="form-control {{$errors->has('rut')?'is-invalid':''}}" name="rut" id="rut" placeholder="Rut sin guión" onkeyup="contadorRut(this);">
 		{!! $errors->first('rut','<div class="invalid-feedback">:message</div>') !!}
+		<p id="contadorRut"><span style="color: red;">Mínimo 8 caracteres</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0/9</p>
 	</div>
 
 	<div class="form-group">

@@ -29,7 +29,7 @@ class AcademicoController extends Controller{
     public function store(Request $request){
         $request->user()->authorizeRoles(['Admin','Secretario']);
     	$campos=[
-            'rut' => 'required|string|min:2',
+            'rut' => 'required|numeric|min:8',
             'nombre' => 'required|string|max:100',
             'apellido' => 'required|string|max:100',
             'titulo' => 'required|string|max:100',

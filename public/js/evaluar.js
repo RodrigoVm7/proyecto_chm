@@ -29,6 +29,17 @@ function cambiar_fondo(id){
     document.getElementById("color").value=id;
 }
 
+function contadorRut(obj){
+    var largoStr = obj.value.length;
+    var cont= obj.value;
+
+    if (largoStr > 7){
+        document.getElementById("contadorRut").innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+largoStr+'/9';
+    }else{
+        document.getElementById("contadorRut").innerHTML = '<span style="color: red;">Mínimo 8 caracteres</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+largoStr+'/9';
+    }
+}
+
 // Funcion para truncar un valor asignado por parametro de entrada
 function toTrunc(value,n){
     var x=(value.toString()+".0").split(".");
