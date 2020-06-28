@@ -202,18 +202,16 @@
 	</table>
 </div>
 
-<h4>III. ESCALA EVALUATIVA:</h4>
+<p style="font-size: 13px; margin-left: 10px;"><b><u>III. ESCALA EVALUATIVA:</u></b></p>
 <div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 			<tr>
-				<th><center>ESCALA:Excelente = 4,5 a 5      Muy Bueno = 4,0 a 4,4<br>Regular = 3,4 a 2,7    Deficiente = menos de 2,7 Bueno: 3,5 a 3,9</center></th>
+				<td><center><b>ESCALA:</b>&nbsp;&nbsp;&nbsp;&nbsp; <u>Excelente</u> = &nbsp;4,5 a 5 &nbsp;&nbsp;&nbsp;&nbsp;  <u>Muy Bueno</u> = &nbsp;4,0 a 4,4 &nbsp;&nbsp;&nbsp;&nbsp;<u>Bueno</u>= &nbsp;3,5 a 3,9 <br><u>Regular</u> = &nbsp;3,4 a 2,7 &nbsp;&nbsp;&nbsp;&nbsp; <u>Deficiente</u> = &nbsp;menos de 2,7 &nbsp;&nbsp;&nbsp;&nbsp; </center></th>
 			</tr>
 	</table>
 </div>
 
-<div class="page-break"></div>
-<br><br><br>
-<h4>IV. ARGUMENTOS DE LA CALIFICACIÓN FINAL:</h4>
+<p style="font-size: 13px; margin-left: 10px;"><b><u>IV. ARGUMENTOS DE LA CALIFICACIÓN FINAL:</u></b></p>
 <div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 			<tr>
@@ -222,11 +220,22 @@
 	</table>
 </div>
 
-<br>
-<h4><center>FIRMA COMISIÓN</center></h4>
-@if($firmaComision!="")
-<center><img src="http://localhost:8888/chm/public/storage/{{$firmaComision}}" width="30%" height="30%"></center>
-@endif
+<div style="position: absolute; bottom: 0;">
+	<h4><center>FIRMA COMISIÓN</center></h4>
+	@if($firmaComision!="")
+	<center><img src="http://localhost:8888/chm/public/storage/{{$firmaComision}}" width="30%" height="30%"></center>
+	@endif
+	
+	<br><h8>FECHA: {{$datos->updated_at->format('d-m-yy')}}</h8>
+</div>
+<!-- <table WIDTH="100%">
+	
+	<tr>
+		<td style="width: 30%;"><br><br></td>
+		<td style="width: 30%;"><br><br></td>
+		<td style="width: 30%;"><br><br></td>
+	</tr>
+</table> -->
 <!--<div class="w3-container">
 	<table class="w3-table-all" WIDTH="30%">
 		<tr hidden=""></tr>
@@ -254,8 +263,7 @@
 			<th style="visibility:hidden;"><center>Nombre y Firmaaaaaa</center></th>
 			<th style="width: 50%;"><center>Nombre y Firma Ministro de Fe</center></th>
 		</tr>
-	</table>-->
-	<br><h8>FECHA: {{$datos->updated_at->format('d-m-yy')}}</h8>
-</div>
+	</table>
+</div>-->
 </body>
 </html>
