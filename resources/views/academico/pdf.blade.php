@@ -5,6 +5,7 @@
 	<title></title>
 
 	<style>
+
 		table, td, th {
   			border: 1px solid black;
 			padding: 0;
@@ -13,6 +14,11 @@
 		/* th {
   			height: 50px;
 		} */
+
+		table th{
+			height: 5px;
+		}
+
     	#vertical-bar {
         	border-left: 1px solid #ccc;
         	width:1px;
@@ -22,11 +28,7 @@
    			 page-break-after: always;
 		}
 		header {
-            position: fixed;
-            top: -0.8cm;
-            left: 0cm;
-            right: 0cm;
-            height: 2cm;
+           
             color: #9c9c9c;
             text-align: left;
             line-height: 30px;
@@ -40,21 +42,38 @@
   			float: left;
   			margin-right: 15px;
 		}
+
+		.info th{
+			background-color: #f1f1f1;
+		}
+
+		.info td{
+			font-size: 13px;
+			height: 25px;
+		}
+		
+
+		
+
 	</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<header>
-	<div class="noticia">
-	<img class="izquierda" src="images/ucm_3.png" width="8%" height="80%"><aside>VICERRECTORIA ACADÉMICA<br>COMISIÓN PROMOCIÓN ACADÉMICA</aside>
-</div>
+
+<header style="margin-top: -30px;">
+	<div class="noticia" >
+		<img class="izquierda" src="images/ucm_3.png" width="8%" height="80%">
+		<aside><p style="margin-bottom: -25px; margin-top: -8px;">VICERRECTORIA ACADÉMICA</p><p>COMISIÓN PROMOCIÓN ACADÉMICA</p></aside>
+	</div>
 </header>
-<br><br>
+
+
 <body>
-	<main><h3><center><u><b>PAUTA RESUMEN: Profesor {{$academico->categoria}}</b></u></center></h3></main>
-<h4><u>I. IDENTIFICACIÓN:</u></h4>
+	<center><p style="font-size: 18px; margin-bottom: -10px; margin-top: -5px;"><u><b>PAUTA RESUMEN: Profesor {{$academico->categoria}}</b></u></p></center>
+
+<p style="font-size: 13px; margin-left: 10px;"><b><u>I. IDENTIFICACIÓN:</u></b></p>
 <div class="w3-container">
-	<table class="w3-table-all" WIDTH="30%" style="font-size: 12px">
+	<table class="info" WIDTH="100%" style="font-size: 12px">
 		<tbody>
 			<tr>
 				<th style="text-align: center">Académico</th>
@@ -109,12 +128,12 @@
 </div>
 <!-- <div class="page-break"></div> -->
 
-<h4>II. Calificación Académica:</h4>
+<p style="font-size: 13px; margin-left: 10px;"><b><u>II. CALIFICACIÓN ACADÉMICA:</u></b></p>
 <div class="w3-container">
 	<table>
 			<tr>
 				<th rowspan="2"></th>
-				<th rowspan="2">% TIEMPO ASIGNADO A TAREAS PROGRAMADAS</th>
+				<th rowspan="2" style="font-size: 11px;">% TIEMPO ASIGNADO A TAREAS PROGRAMADAS</th>
 				<th colspan="5">CALIFICACIÓN</th>
 				<th>Pond.</th>
 			</tr>
@@ -124,7 +143,7 @@
 				<th>B</th>
 				<th>R</th>
 				<th>D</th>
-				<th>% T x C / 100</th>
+				<th style="font-size: 13px;">% T x C / 100</th>
 			</tr>
 			<tr>
 				<td style="width: 35%; text-align: center;">1. Actividades de Docencia</td>
