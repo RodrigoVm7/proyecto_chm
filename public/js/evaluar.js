@@ -45,6 +45,180 @@ function contadorComentario(obj){
     document.getElementById("contadorComentario").innerHTML = '<span style="color: grey;">Máximo 200 caracteres</span><span style="float: right; color: grey">'+largoStr+'/200</span>';
 }
 
+//Funcion que agrega un contador de la ponderacion total ingresada en una evaluación. Se encarga de habilitar/desabilitar botón de envío.
+function contadorPonderacion(){
+    //Calculo para sumar las ponderaciones ingresadas
+    var ta1 = parseFloat(document.getElementById("tiempoAsignado1").value);
+    var ta2 = parseFloat(document.getElementById("tiempoAsignado2").value);
+    var ta3 = parseFloat(document.getElementById("tiempoAsignado3").value);
+    var ta4 = parseFloat(document.getElementById("tiempoAsignado4").value);
+    var ta5 = parseFloat(document.getElementById("tiempoAsignado5").value);
+    if(isNaN(ta1)){
+        ta1=0;
+    }
+    if(isNaN(ta2)){
+        ta2=0;
+    }
+    if(isNaN(ta3)){
+        ta3=0;
+    }
+    if(isNaN(ta4)){
+        ta4=0;
+    }
+    if(isNaN(ta5)){
+        ta5=0;
+    }
+    var total = ta1 + ta2 + ta3 + ta4 + ta5;
+
+    //Obtencion valores de notas de una actividad
+    var e1=parseFloat(document.getElementById("1e").value);
+    var mb1=parseFloat(document.getElementById("1mb").value);
+    var b1=parseFloat(document.getElementById("1b").value);
+    var r1=parseFloat(document.getElementById("1r").value);
+    var d1=parseFloat(document.getElementById("1d").value);
+    if(isNaN(e1)){
+        e1=0;
+    }
+    if(isNaN(mb1)){
+        mb1=0;
+    }
+    if(isNaN(b1)){
+        b1=0;
+    }
+    if(isNaN(r1)){
+        r1=0;
+    }
+    if(isNaN(d1)){
+        d1=0;
+    }
+    fila1=e1+mb1+b1+r1+d1;
+
+    var e2=parseFloat(document.getElementById("2e").value);
+    var mb2=parseFloat(document.getElementById("2mb").value);
+    var b2=parseFloat(document.getElementById("2b").value);
+    var r2=parseFloat(document.getElementById("2r").value);
+    var d2=parseFloat(document.getElementById("2d").value);
+    if(isNaN(e2)){
+        e2=0;
+    }
+    if(isNaN(mb2)){
+        mb2=0;
+    }
+    if(isNaN(b2)){
+        b2=0;
+    }
+    if(isNaN(r2)){
+        r2=0;
+    }
+    if(isNaN(d2)){
+        d2=0;
+    }
+    fila2=e2+mb2+b2+r2+d2;
+
+    var e3=parseFloat(document.getElementById("3e").value);
+    var mb3=parseFloat(document.getElementById("3mb").value);
+    var b3=parseFloat(document.getElementById("3b").value);
+    var r3=parseFloat(document.getElementById("3r").value);
+    var d3=parseFloat(document.getElementById("3d").value);
+    if(isNaN(e3)){
+        e3=0;
+    }
+    if(isNaN(mb3)){
+        mb3=0;
+    }
+    if(isNaN(b3)){
+        b3=0;
+    }
+    if(isNaN(r3)){
+        r3=0;
+    }
+    if(isNaN(d3)){
+        d3=0;
+    }
+    fila3=e3+mb3+b3+r3+d3;
+
+    var e4=parseFloat(document.getElementById("4e").value);
+    var mb4=parseFloat(document.getElementById("4mb").value);
+    var b4=parseFloat(document.getElementById("4b").value);
+    var r4=parseFloat(document.getElementById("4r").value);
+    var d4=parseFloat(document.getElementById("4d").value);
+    if(isNaN(e4)){
+        e4=0;
+    }
+    if(isNaN(mb4)){
+        mb4=0;
+    }
+    if(isNaN(b4)){
+        b4=0;
+    }
+    if(isNaN(r4)){
+        r4=0;
+    }
+    if(isNaN(d4)){
+        d4=0;
+    }
+    fila4=e4+mb4+b4+r4+d4;
+
+    var e5=parseFloat(document.getElementById("5e").value);
+    var mb5=parseFloat(document.getElementById("5mb").value);
+    var b5=parseFloat(document.getElementById("5b").value);
+    var r5=parseFloat(document.getElementById("5r").value);
+    var d5=parseFloat(document.getElementById("5d").value);
+    if(isNaN(e5)){
+        e5=0;
+    }
+    if(isNaN(mb5)){
+        mb5=0;
+    }
+    if(isNaN(b5)){
+        b5=0;
+    }
+    if(isNaN(r5)){
+        r5=0;
+    }
+    if(isNaN(d5)){
+        d5=0;
+    }
+    fila5=e5+mb5+b5+r5+d5;
+
+    //Condiciones donde hay que bloquear el botón de envio de la evaluación
+    var correcto=1;
+
+    if(ta1!=0 && fila1==0){
+        correcto=0;
+    }else if(ta2!=0 && fila2==0){
+        correcto=0;
+    }else if(ta3!=0 && fila3==0){
+        correcto=0;
+    }else if(ta4!=0 && fila4==0){
+        correcto=0;
+    }else if(ta5!=0 && fila5==0){
+        correcto=0;
+    }else if(ta1==0 && fila1!=0){
+        correcto=0;
+    }else if(ta2==0 && fila2!=0){
+        correcto=0;
+    }else if(ta3==0 && fila3!=0){
+        correcto=0;
+    }else if(ta4==0 && fila4!=0){
+        correcto=0;
+    }else if(ta5==0 && fila5!=0){
+        correcto=0;
+    }
+
+    if(total == 100){
+        document.getElementById("contadorTtalPonderacion").innerHTML = '<span style="color: grey;">'+total+' %</span>'
+        if(correcto==1){
+            document.getElementById("boton-evaluar").disabled = false;
+        }else{
+            document.getElementById("boton-evaluar").disabled = true;
+        }
+    }else{
+        document.getElementById("boton-evaluar").disabled = true;
+        document.getElementById("contadorTtalPonderacion").innerHTML = '<span style="color: red;">'+total+' %</span>'
+    }
+}
+
 // Funcion para truncar un valor asignado por parametro de entrada
 function toTrunc(value,n){
     var x=(value.toString()+".0").split(".");
