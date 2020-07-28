@@ -390,7 +390,7 @@
   	</div>
 
 	<br>
-	<input id ="boton-evaluar" type="submit" class="btn btn-success" value="Actualizar Evaluación" disabled="false"><br><br>
+	<input id ="boton-evaluar" type="submit" class="btn btn-success" value="Actualizar Evaluación"><br><br>
 	<a class="btn btn-primary" href="{{ url('evaluacion') }}">Regresar ←</a>
 
 </form>

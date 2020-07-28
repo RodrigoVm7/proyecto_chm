@@ -194,9 +194,21 @@
 				<td><center>{{$datos->r5}}</center></td>
 				<td><center>{{$datos->d5}}</center></td>
 				<td><center>{{$datos->t5c}}</center></td>
-			</tr>
+			</tr> 
 			<tr>
-				<th colspan="7">Calificación Final</th>
+				<th colspan="7">Calificación Final:&nbsp;&nbsp;&nbsp;  
+				@if($datos->nota_final>4.4)
+					"Excelente"
+				@elseif($datos->nota_final>3.9)
+					"Muy bueno"
+				@elseif($datos->nota_final>3.4)
+					"Bueno"
+				@elseif($datos->nota_final>2.6)
+					"Regular"
+				@elseif($datos->nota_final<2.7)
+					"Deficiente"
+				@endif
+				</th>
 				<th><center>{{$datos->nota_final}}</center></th>
 			</tr>
 	</table>
