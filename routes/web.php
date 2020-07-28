@@ -38,6 +38,7 @@ Route::post('/admin/guardarDepartamento','DepartamentoController@store');
 Route::get('/admin/departamento/{cod_departamento}/edit','DepartamentoController@edit');
 Route::post('/admin/departamento/{cod_departamento}/update','DepartamentoController@update');
 Route::post('/admin/buscarDepartamento','DepartamentoController@buscar');
+Route::get('/admin/depasporfacu/{nombre_facultad}','DepartamentoController@depasporfacu');
 
 Route::get('/admin/usuarios','usersController@mostrar');
 Route::get('/admin/añadirUsuario','usersController@create');
@@ -80,5 +81,6 @@ Route::get('/graficoAcademico/{rut}','GraficosController@graficoAcademico');
 
 Route::get('/personalizarFondo','usersController@personalizar');
 Route::post('/cambiarColor','usersController@cambiarColor');
+
 
  

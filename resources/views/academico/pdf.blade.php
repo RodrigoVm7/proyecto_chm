@@ -223,7 +223,7 @@
 <div style="position: absolute; bottom: 0;">
 	<h4><center>FIRMA COMISIÓN</center></h4>
 	@if($firmaComision!="")
-	<center><img src="http://localhost:8888/chm/public/storage/{{$firmaComision}}" width="30%" height="30%"></center>
+	<center><img src="http://localhost/proyecto_chm/public/storage/{{$firmaComision}}" width="30%" height="30%"></center>
 	@endif
 	
 	<br><h8>FECHA: {{$datos->updated_at->format('d-m-yy')}}</h8>

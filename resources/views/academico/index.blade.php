@@ -20,7 +20,7 @@
 <form action="{{url('buscarAcademico')}}" class="form-horizontal" method="post">
 	{{ csrf_field() }}
 	<div class="form-group">
-		<input type="text" class="form-control {{$errors->has('rut')?'is-invalid':''}}" name="rut" id="rut" placeholder="Buscar Rut">
+		<input type="text" class="form-control {{$errors->has('rut')?'is-invalid':''}}" name="rut" id="rut" placeholder="Buscar Rut">❓
 		{!! $errors->first('rut','<div class="invalid-feedback">:message</div>') !!}
 	</div>
 </form>

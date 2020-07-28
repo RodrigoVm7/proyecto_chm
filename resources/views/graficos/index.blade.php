@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 <body class="fondo{{$color}}">
 
 @section('content')
 
-<div class="container">
+<div class="container"> 
 
 <!-- Secciones que permite mostrar mensajes en pantalla-->
 @if(!empty($Mensaje))
@@ -30,7 +31,7 @@
 <form action="{{url('/admin/graficar/')}}" class="form-horizontal" method="post">
 {{ csrf_field() }}
 
-	<table class="table table-light table-hover">
+	<table class="table table-light table-hover" id="prueba">
 		<thread class="thread-light">
 			<tr>
 				<th>Periodos</th>
@@ -71,7 +72,7 @@
 
 				<td>
 					<div class="form-group">
-						<select name="facultad" size="1" style="
+						<select name="facultad" size="1"  onchange="cambio(this.value)" style="
 			    			display: block;
 							width: 100%;
 			    			height: calc(2.19rem + 2px);
@@ -83,24 +84,29 @@
 							background-clip: padding-box;
 							border: 1px solid #ced4da;
 							border-radius: .25rem;">
-							@if($seleccionado->facultad=="")
+							@if ($seleccionado->facultad=="")
 								<option selected value="" disabled selected>Seleccionar Facultad</option>
+								<option value="">Todas las Facultades</option>
+							@elseif ($seleccionado->facultad=="Todas las Facultades")
+								<option selected value="">{{$seleccionado->facultad}}</option>
 							@else
 								<option selected value="{{$seleccionado->facultad}}">{{$seleccionado->facultad}}</option>
+								<option value="">Todas las Facultades</option>
 							@endif
 							@foreach($facultades as $facultad)	
 								@if($facultad->nombre != $seleccionado->facultad)
 									<option value="{{$facultad->nombre}}">{{$facultad->nombre}}</option>
 								@endif
 							@endforeach
+							
 						</select>
 						{!! $errors->first('facultad','<div class="invalid-feedback">:message</div>') !!}
 					</div>
-				</td>
+				</td> 
 
 				<td>
 					<div class="form-group">
-						<select name="departamento" size="1" style="
+						<select name="departamento" id="filtro_departamento" size="1" style="
 			    			display: block;
 							width: 100%;
 			    			height: calc(2.19rem + 2px);
@@ -112,17 +118,28 @@
 							background-clip: padding-box;
 							border: 1px solid #ced4da;
 							border-radius: .25rem;">
-							@if($seleccionado->departamento=="")
+							<!-- ------------------------------------------------------------------- -->
+							
+							
+							@if ($seleccionado->departamento=="")
 								<option selected value="" disabled selected>Seleccionar Departamento</option>
+								<option value="">Todos los Departamentos</option>
+							@elseif ($seleccionado->departamento=="Todos los Departamentos")
+								<option selected value="">{{$seleccionado->departamento}}</option>
 							@else
 								<option selected value="{{$seleccionado->departamento}}">{{$seleccionado->departamento}}</option>
-							@endif
+								<option value="">Todos los Departamentos</option>
+								@endif
+								
+							
 							@foreach($departamentos as $departamento)
 								@if($departamento->nombre != $seleccionado->departamento)
 									<option value="{{$departamento->nombre}}">{{$departamento->nombre}}</option>
 								@endif
 							@endforeach
+							
 						</select>
+						
 						{!! $errors->first('departamento','<div class="invalid-feedback">:message</div>') !!}
 					</div>
 				</td>
@@ -130,15 +147,20 @@
 			</tr>
 		</tbody>
 	</table>
+	
 </form>
 
 <!-- Gráfico circular que muestra el total de tiempo destinado a cada actividad de parte de todos los academicos-->
 <html>
   <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{!! asset('js/graficos.js') !!}"></script>
+	<script type="text/javascript">
+	
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+	  google.charts.setOnLoadCallback(drawChart);
+	  
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Tiempo de Todos los Academicos'],
@@ -152,9 +174,9 @@
           title: 'Distribución de tiempo de todos los académicos de la universidad hacia una actividad determinada durante todos los años'
         };
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-      }     
-    </script>
+		chart.draw(data, options);
+	  }     
+	</script>
   </head>
   <body>
     <div id="piechart" style="width: 900px; height: 500px;"></div>
@@ -201,3 +223,4 @@
 </div>
 @endsection
 </body>
+

@@ -37,7 +37,7 @@ class DepartamentoController extends Controller{
         Departamento::insert($datosDepartamento);
         return redirect('admin/departamentos')->with('Mensaje','Departamento agregado correctamente');
     }
-
+ 
     /* Funcion que retorna a la pagina que permite editar la informacion de un departameno en particular*/
     public function edit(Request $request, $cod_departamento){
         $request->user()->authorizeRoles(['Admin']);
@@ -62,6 +62,18 @@ class DepartamentoController extends Controller{
     	$cod_departamento=request()->input('cod_departamento');
     	$datos=Departamento::where('cod_departamento','=',$cod_departamento)->get();
     	return view('departamento.buscar',compact('datos'));
+    }
+
+    public function depasporfacu(Request $request,$nombre_facultad){
+        $request->user()->authorizeRoles(['Admin']);
+        if($nombre_facultad != "Todas las facultades"){
+            $departamentos = Departamento::where('facultad','=',$nombre_facultad)->get();
+            return $departamentos;
+        }
+        else{
+            $departamentos = Departamento::all();
+            return $departamentos;
+        }
     }
 
 }

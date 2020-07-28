@@ -66,38 +66,52 @@ class GraficosController extends Controller{
 		if($request->input('periodo')!="" && $request->input('facultad')=="" && $request->input('departamento')==""){	//Solo Periodo
 			$evaluaciones=Evaluacion::where('año','=',$request->input('periodo'))->get();
 			$seleccionado->periodo=$request->input('periodo');
-			$seleccionado->facultad="";
-			$seleccionado->departamento="";
+			$seleccionado->facultad="Todas las Facultades";
+			$seleccionado->departamento="Todos los Departamentos";
+			$departamentos=Departamento::all();
 		}elseif($request->input('facultad')!="" && $request->input('periodo')=="" && $request->input('departamento')==""){	//Solo Facultad
 			$evaluaciones=Evaluacion::where('facultad','=',$request->input('facultad'))->get();
 			$seleccionado->periodo="";
 			$seleccionado->facultad=$request->input('facultad');
-			$seleccionado->departamento="";
+			$seleccionado->departamento="Todos los Departamentos";
+			$departamentos=Departamento::where('facultad','=',$request->input('facultad'))->get();
 		}elseif($request->input('departamento')!="" && $request->input('periodo')=="" && $request->input('facultad')==""){	//Solo Dpto.
 			$evaluaciones=Evaluacion::where('departamento_academico','=',$request->input('departamento'))->get();
 			$seleccionado->periodo="";
-			$seleccionado->facultad="";
+			$seleccionado->facultad="Todas las Facultades";
 			$seleccionado->departamento=$request->input('departamento');
+			$departamentos=Departamento::all();
 		}elseif($request->input('periodo')!="" && $request->input('facultad')!="" && $request->input('departamento')==""){	//Periodo Facultad
 			$evaluaciones=Evaluacion::where('año','=',$request->input('periodo'))->where('facultad','=',$request->input('facultad'))->get();
 			$seleccionado->periodo=$request->input('periodo');
 			$seleccionado->facultad=$request->input('facultad');
-			$seleccionado->departamento="";
+			$seleccionado->departamento="Todos los Departamentos";
+			$departamentos=Departamento::where('facultad','=',$request->input('facultad'))->get();
 		}elseif($request->input('periodo')!="" && $request->input('departamento')!="" && $request->input('facultad')==""){	//Periodo Dpto.
 			$evaluaciones=Evaluacion::where('año','=',$request->input('periodo'))->where('departamento_academico','=',$request->input('departamento'))->get();
 			$seleccionado->periodo=$request->input('periodo');
-			$seleccionado->facultad="";
+			$seleccionado->facultad="Todas las Facultades";
 			$seleccionado->departamento=$request->input('departamento');
+			$departamentos=Departamento::all();
 		}elseif($request->input('facultad')!="" && $request->input('departamento')!="" && $request->input('periodo')==""){	//facultad dpto.
 			$evaluaciones=Evaluacion::where('facultad','=',$request->input('facultad'))->where('departamento_academico','=',$request->input('departamento'))->get();
 			$seleccionado->periodo="";
 			$seleccionado->facultad=$request->input('facultad');
 			$seleccionado->departamento=$request->input('departamento');
-		}else{	//Todos los parametros ingresados
+			$departamentos=Departamento::where('facultad','=',$request->input('facultad'))->get();
+		}elseif($request->input('facultad')=="" && $request->input('departamento')=="" && $request->input('periodo')==""){	//Todos los parametros vacios. 
+			$evaluaciones=Evaluacion::all();
+			$seleccionado->periodo="";
+			$seleccionado->facultad="Todas las Facultades";
+			$seleccionado->departamento="Todos los Departamentos";
+			$departamentos=Departamento::all();
+		}
+		else{	//Todos los parametros ingresados
 			$evaluaciones=Evaluacion::where('año','=',$request->input('periodo'))->where('facultad','=',$request->input('facultad'))->where('departamento_academico','=',$request->input('departamento'))->get();
 			$seleccionado->periodo=$request->input('periodo');
 			$seleccionado->facultad=$request->input('facultad');
-			$seleccionado->departamento=$request->input('departamento');;
+			$seleccionado->departamento=$request->input('departamento');
+			$departamentos=Departamento::where('facultad','=',$request->input('facultad'))->get();
 		}
 
 		$datosGrafico = new \stdClass;
@@ -125,9 +139,8 @@ class GraficosController extends Controller{
 			}
 		}
 
-		$periodos=Periodo::all();
 		$facultades=Facultad::all();
-		$departamentos=Departamento::all();
+		$periodos=Periodo::all();
 		$academicos=Academico::where('facultad','=',auth()->user()->facultad)->paginate(5);
 		if($evaluaciones=="[]"){
 			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos','color'))->with('Mensaje','No hay datos para mostrar');
