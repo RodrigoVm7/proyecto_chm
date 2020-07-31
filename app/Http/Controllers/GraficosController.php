@@ -143,7 +143,7 @@ class GraficosController extends Controller{
 		}
 
 		$facultades=Facultad::all();
-		$periodos=Periodo::all();
+		$periodos=Periodo::where('estado','=','INACTIVO')->get();
 		$academicos=Academico::where('facultad','=',auth()->user()->facultad)->paginate(5);
 		if($evaluaciones=="[]"){
 			return view('graficos.index',compact('datosGrafico','periodos','facultades','departamentos','seleccionado','academicos','color'))->with('Mensaje','No hay datos para mostrar');
