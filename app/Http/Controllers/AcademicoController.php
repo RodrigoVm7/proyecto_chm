@@ -49,9 +49,10 @@ class AcademicoController extends Controller{
     /* Funcion que retorna una vista con los datos del academico buscado mediante el rut*/
     public function buscar(Request $request){
         $request->user()->authorizeRoles(['Admin','Secretario']); 
+        $color = $request->user()->color;
     	$rut=request()->input('rut');
     	$datos=Academico::where('rut','=',$rut)->get();
-    	return view('academico.buscar',compact('datos'));
+    	return view('academico.buscar',compact('datos','color'));
     }
 
     /* Funcion que retorna a la pagina que permite editar la informacion de un academico en particular*/

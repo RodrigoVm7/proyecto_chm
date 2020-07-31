@@ -102,9 +102,10 @@ class usersController extends Controller {
     /* Función que retorna una vista con los datos del usuario buscado mediante el rut*/
     public function buscar(Request $request){
         $request->user()->authorizeRoles(['Admin']);
+        $color = $request->user()->color;
         $rut=request()->input('rut');
         $datos=User::where('rut','=',$rut)->get();
-        return view('user.buscar',compact('datos'));
+        return view('user.buscar',compact('datos','color'));
     }
 
     /* Función que retorna a la página que permite editar la información de un usuario en particular*/

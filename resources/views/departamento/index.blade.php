@@ -20,7 +20,7 @@
 <form action="{{url('/admin/buscarDepartamento')}}" class="form-horizontal" method="post">
 	{{ csrf_field() }}
 	<div class="form-group">
-		<input type="text" class="form-control {{$errors->has('cod_departamento')?'is-invalid':''}}" name="cod_departamento" id="cod_departamento" placeholder="Buscar Departamento">
+		<input type="text" class="form-control {{$errors->has('cod_departamento')?'is-invalid':''}}" name="nom_departamento" id="nom_departamento" placeholder="Buscar Departamento por Nombre">
 		{!! $errors->first('cod_departamento','<div class="invalid-feedback">:message</div>') !!}
 	</div>
 </form>

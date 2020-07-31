@@ -50,10 +50,11 @@ class ComisionController extends Controller{
 
     /* Funcion que retorna una vista con los datos de la comision buscada mediante el id*/
     public function buscar(Request $request){
-        $request->user()->authorizeRoles(['Admin','Secretario']); 
+        $request->user()->authorizeRoles(['Admin','Secretario']);
+        $color = $request->user()->color;
     	$id_comision=request()->input('id_comision');
     	$datos=Comision::where('id_comision','=',$id_comision)->get();
-    	return view('comision.buscar',compact('datos'));
+    	return view('comision.buscar',compact('datos','color'));
     }
 
     /* Funcion que retorna a la pagina que permite editar la informacion de una comision en particular*/

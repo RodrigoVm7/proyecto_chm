@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
+
 @section('content')
 
 <div class="container">
@@ -31,7 +35,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada usuario, junto con un boton que permite editar
 			 su informacion-->
 		@foreach($datos as $user)
-		<tr>
+		<tr align="center">
 			<td>{{ $user->nombre}}</td>
 			<td>{{ $user->apellidos}}</td>
 			<td>{{ $user->permiso}}</td>
@@ -46,7 +50,8 @@
 	</tbody>
 </table>
 
-<a href="{{ url('admin/usuarios') }}" class="btn btn-success" >Regresar</a>
+<a href="{{ url('admin/usuarios') }}" class="btn btn-success" >⏎ Regresar</a>
 
 </div>
 @endsection
+</body>

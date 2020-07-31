@@ -56,9 +56,10 @@ class FacultadController extends Controller{
     /* Funcion que retorna una vista con los datos de la facultad buscada mediante el codigo*/
     public function buscar(Request $request){
         $request->user()->authorizeRoles(['Admin']);
-    	$cod_facultad=request()->input('cod_facultad');
-    	$datos=Facultad::where('cod_facultad','=',$cod_facultad)->get();
-    	return view('facultad.buscar',compact('datos'));
+        $color = $request->user()->color;
+    	$nom_facultad=request()->input('nom_facultad');
+    	$datos=Facultad::where('nombre','=',$nom_facultad)->get();
+    	return view('facultad.buscar',compact('datos','color'));
     }
 
 }

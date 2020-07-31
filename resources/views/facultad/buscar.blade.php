@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
 @section('content')
 
 <div class="container">
@@ -30,7 +33,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de la facultad buscada, junto con un boton que permite
 			editar la facultad seleccionada-->
 		@foreach($datos as $facultad)
-		<tr>
+		<tr align="center">
 			<td>{{ $facultad->nombre}}</td>
 			<td>{{ $facultad->decano}}</td>
 			<td>{{ $facultad->estado}}</td>
@@ -42,7 +45,8 @@
 	</tbody>
 </table>
 
-<a href="{{ url('admin/facultades') }}" class="btn btn-success" >Regresar</a>
+<a href="{{ url('admin/facultades') }}" class="btn btn-success" >⏎ Regresar</a>
 
 </div>
 @endsection
+</body>

@@ -27,7 +27,7 @@
 <form action="{{url('/buscarReporte')}}" class="form-horizontal" method="post">
 	{{ csrf_field() }}
 	<div class="form-group">
-		<input type="text" class="form-control {{$errors->has('periodo')?'is-invalid':''}}" name="periodo" id="periodo" placeholder="Buscar Periodo">
+		<input type="text" class="form-control {{$errors->has('periodo')?'is-invalid':''}}" name="periodo" id="periodo" placeholder="Buscar Periodo por Año">
 		{!! $errors->first('periodo','<div class="invalid-feedback">:message</div>') !!}
 	</div>
 </form>

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
+
 @section('content')
 
 <div class="container">
@@ -33,7 +37,7 @@
 	</thread>
 	<tbody>
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el periodo buscado, junto con botones para generar pdf, excel y ver/subir firmas-->
-		<tr>
+		<tr align="center">
 			<td>{{ $datos->año}}</td>
 			<td>
 				<a class="btn btn-light" href="{{ url('/generarPDF/'.$datos->año) }}">📄
@@ -55,3 +59,4 @@
 
 </div>
 @endsection
+</body>

@@ -1,6 +1,6 @@
 function cambio(facultad){
   if(facultad==""){facultad="Todas las facultades";}
-  var cadena = "http://localhost/proyecto_chm/public/admin/depasporfacu/" + facultad;
+  var cadena = "http://localhost:8888/chm/public/admin/depasporfacu/" + facultad;
   fetch(cadena)  // fetch se encarga de utilizar la API con URL 
   .then((respuesta) => {
   

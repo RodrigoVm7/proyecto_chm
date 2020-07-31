@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
 @section('content')
 
 <div class="container">
@@ -30,7 +33,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada departamento, junto con un boton que
 			 permitirá editar el departamento seleccionado-->
 		@foreach($datos as $departamento)
-		<tr>
+		<tr align="center">
 			<td>{{ $departamento->nombre}}</td>
 			<td>{{ $departamento->facultad}}</td>
 			<td>{{ $departamento->estado}}</td>
@@ -42,7 +45,8 @@
 	</tbody>
 </table>
 
-<a href="{{ url('admin/departamentos') }}" class="btn btn-success" >Regresar</a>
+<a href="{{ url('admin/departamentos') }}" class="btn btn-success" >⏎ Regresar</a>
 
 </div>
 @endsection
+</body>

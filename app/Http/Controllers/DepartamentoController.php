@@ -59,9 +59,10 @@ class DepartamentoController extends Controller{
     /* Funcion que retorna una vista con los datos del departamento buscado mediante el codigo*/
     public function buscar(Request $request){
         $request->user()->authorizeRoles(['Admin']);
-    	$cod_departamento=request()->input('cod_departamento');
-    	$datos=Departamento::where('cod_departamento','=',$cod_departamento)->get();
-    	return view('departamento.buscar',compact('datos'));
+        $color = $request->user()->color;
+    	$nom_departamento=request()->input('nom_departamento');
+    	$datos=Departamento::where('nombre','=',$nom_departamento)->get();
+    	return view('departamento.buscar',compact('datos','color'));
     }
 
     public function depasporfacu(Request $request,$nombre_facultad){

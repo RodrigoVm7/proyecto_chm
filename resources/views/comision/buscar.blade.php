@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
+
 @section('content')
 
 <div class="container">
@@ -36,7 +40,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada comisión, junto con un botón que permite
 			 editar la comisión seleccionada-->
 		@foreach($datos as $comision)
-		<tr>
+		<tr align="center">
 			<td>{{ $comision->facultad}}</td>
 			<td>{{ $comision->año}}</td>
 			<td>{{ $comision->rut_academico}}</td>
@@ -52,7 +56,8 @@
 	</tbody>
 </table>
 
-<a href="{{ url('comisiones') }}" class="btn btn-success" >Regresar</a>
+<a href="{{ url('comisiones') }}" class="btn btn-success" >⏎ Regresar</a>
 
 </div>
 @endsection
+</body>

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+
+<body class="fondo{{$color}}">
 
 @section('content')
 
@@ -33,7 +36,7 @@
 		<!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada académico, junto con un botón que permitirá
 			 redirigir a editar el académico seleccionado-->
 		@foreach($datos as $academico)
-		<tr>
+		<tr align="center">
 			<td>{{ $academico->rut}}</td>
 			<td>{{ $academico->nombre}}</td>
 			<td>{{ $academico->apellido}}</td>
@@ -48,7 +51,7 @@
 	</tbody>
 </table>
 
-<a href="{{ url('/academicos') }}" class="btn btn-success" >Regresar</a>
+<a href="{{ url('/academicos') }}" class="btn btn-success" >⏎ Regresar</a>
 
 
 </div>

@@ -115,12 +115,13 @@ class ReportesController extends Controller{
     /* Función que retorna una vista con el periodo ingresado para buscar, junto con los botones poder generar los reportes de dicho periodo*/
     public function buscar(Request $request){
         $periodo=$request->input('periodo');
+        $color = $request->user()->color;
         $subida=0;
         $datos=Periodo::where('año','=',$periodo)->first();
         if($datos==""){
             return redirect('reportes')->with('Mensaje','El periodo no existe');
         }else{
-            return view('reportes.buscar',compact('datos','subida'));
+            return view('reportes.buscar',compact('datos','subida','color'));
         }
     }
        
