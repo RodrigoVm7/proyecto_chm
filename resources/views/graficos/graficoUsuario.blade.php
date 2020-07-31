@@ -140,10 +140,37 @@
       chart.draw(view, options);
   	}
 </script>
-<br><h5>Concentración Histórica de Notas Finales</h2>
+<br><h5>Concentración Histórica de Notas Finales</h5>
 <div id="columnchart_values" style="width: 900px; height: 500px;"></div>
 
 </html>
+
+<h5>Reporte Evaluación Final por Periodo</h5>
+<table class="table table-light table-hover">
+
+  <!-- Cabecera de la tabla, donde se define el nombre que tendrá cada columna-->
+  <thread class="thread-light">
+    <tr>
+      <th>Periodo</th>
+      <th>PDF</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    <!-- Mediante un ciclo For, se mostrará dentro de la tabla el contenido de cada académico existente, junto con un botón que permitirá
+       actualizar los datos del académico seleccionado-->
+    @foreach($periodos as $periodo)
+    <tr align="center">
+      <td>{{ $periodo->año}}</td>
+      <td>
+        <!--<a class="btn btn-warning" href="{{ url('/generarReporteIndividual/'.$datosGrafico->rut.'/'.$periodo->año) }}">📄-->
+        <a class="btn btn-warning" href="{{ url('/generarReporteIndividual/'.$periodo->año.'/'.$datosGrafico->rut) }}">📄
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+
 </div>
 @endsection
 </body>

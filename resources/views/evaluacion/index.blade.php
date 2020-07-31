@@ -137,7 +137,7 @@
 
 	<tbody>
 		@foreach($yaEvaluados as $evaluado)
-		<tr>
+		<tr align="center">
 			<td>{{ $evaluado->rut}}</td>
 			<td>{{ $evaluado->nombre}}</td>
 			<td>{{ $evaluado->apellido}}</td>

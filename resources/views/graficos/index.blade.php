@@ -201,7 +201,7 @@
 	</thread>
 	<tbody>
 		@foreach($academicos as $academico)
-		<tr>
+		<tr align="center">
 			<td>{{ $academico->rut}}</td>
 			<td>{{ $academico->nombre}}</td>
 			<td>{{ $academico->apellido}}</td>

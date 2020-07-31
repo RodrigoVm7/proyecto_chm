@@ -240,42 +240,6 @@
 	
 	<br><h8>FECHA: {{$datos->updated_at->format('d-m-yy')}}</h8>
 </div>
-<!-- <table WIDTH="100%">
-	
-	<tr>
-		<td style="width: 30%;"><br><br></td>
-		<td style="width: 30%;"><br><br></td>
-		<td style="width: 30%;"><br><br></td>
-	</tr>
-</table> -->
-<!--<div class="w3-container">
-	<table class="w3-table-all" WIDTH="30%">
-		<tr hidden=""></tr>
-		<tr>
-			<td><br><br></td>
-			<td><br><br></td>
-			<td><br><br></td>
-		</tr>
-		<tr>
-			<th><center>Nombre y Firma</center></th>
-			<th><center>Nombre y Firma</center></th>
-			<th><center>Nombre y Firma</center></th>
-		</tr>
-	</table>
 
-	<table class="w3-table-all" WIDTH="30%" style="margin-top: 10px;">
-		<tr hidden=""></tr>
-		<tr style="margin-top: 3px;">
-			<td style="visibility:hidden;"><br><br></td>
-			<td style="visibility:hidden;"><br><br></td>
-			<td><br><br></td>
-		</tr>
-		<tr>
-			<th style="visibility:hidden;"><center>Nombre y Firmaaaaaaa</center></th>
-			<th style="visibility:hidden;"><center>Nombre y Firmaaaaaa</center></th>
-			<th style="width: 50%;"><center>Nombre y Firma Ministro de Fe</center></th>
-		</tr>
-	</table>
-</div>-->
 </body>
 </html>

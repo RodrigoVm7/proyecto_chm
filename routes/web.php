@@ -82,5 +82,7 @@ Route::get('/graficoAcademico/{rut}','GraficosController@graficoAcademico');
 Route::get('/personalizarFondo','usersController@personalizar');
 Route::post('/cambiarColor','usersController@cambiarColor');
 
+Route::get('/generarReporteIndividual/{periodo}/{rut}', 'GraficosController@reporteIndividual');
+
 
  

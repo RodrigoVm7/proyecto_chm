@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+
 use App\Evaluacion;
 use App\Periodo;
 use App\Facultad;
 use App\Departamento;
 use App\Academico;
+use App\Firmas;
 
 class GraficosController extends Controller{
 
@@ -332,6 +335,24 @@ class GraficosController extends Controller{
 		}else{
 			return view('graficos.secretarioIndex',compact('datosGrafico','periodos','departamentos','seleccionado','evaluaciones','academicos'));
 		}
+	}
+
+	public function reporteIndividual(Request $request, $periodo,$rut){
+		$academico=Academico::where('rut','=',$rut)->first();
+        $datos=Evaluacion::where('rut_academico','=',$rut)->where('año','=',$periodo)->first();
+        $notaAnterior=Evaluacion::where('rut_academico','=',$rut)->where('año','=',$periodo-1)->select('nota_final')->first();
+        if($notaAnterior==""){
+            $notaAnterior="-.";
+        }else{
+            $notaAnterior=$notaAnterior->nota_final;
+        }
+        $firmaComision=Firmas::where('periodo','=',$periodo)->where('facultad','=',$request->user()->facultad)->first();
+        if($firmaComision!=""){
+            $firmaComision=$firmaComision->archivo;
+        }
+        $pdf=PDF::loadView('academico.pdf',compact('academico','datos','notaAnterior','firmaComision'));
+        return $pdf->stream('reporte-'.$rut.'.pdf');
+        //return response()->json("hola");
 	}
 
 }
